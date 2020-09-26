@@ -1,11 +1,31 @@
-# WebShopDatacrafter  
+# WebShop
   
 1. Rejestracja do serwisu  
 1.1 Widok rejestracji  
 2. Logowanie do serwisu  
 2.1 Widok logowania  
 3. Boczne menu nawigacyjne  
-4. Widok listy artykulow  
+4. Lista artykulow  
+4.1 Utworzenie modelu danych sprzedawanych artykułów
+a) ManufacturerList  
+  
+b) Manufacturer  
+Fields: manufacturer, manufacturer_logo  
+  
+c) Board  
+Fields: description, image, long_description, manufacturer, manufacturer_logo, name  
+  
+d)BoardTypes  
+Fields: board_type  
+  
+e) BoardSize  
+Fields: length, sail_max, sail_min, volume, width  
+  
+4.2 Utworzenie kontrolera pobierajacego liste dostępnych artykułów (EntityFramewortkCore)
+4.3 Kontroler pobierajacy artykuły danej kategorii
+4.4 Kontroler pobierający tylko dostępne artykuły danej kategorii
+4.5 Widok wyswietlajacy artykuły danej kategorii
+4.6 Widok wyswietlajacy tylko dostępne artykuły danej kategorii
 5. Widok detali wybranego artykulu  
 6. Koszyk  
 6.1 Widok koszyka z mozliwoscia dodawania i odejmowania elementow w koszyku  
