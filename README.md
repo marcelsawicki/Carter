@@ -6,20 +6,20 @@
 2.1 Widok logowania  
 3. Boczne menu nawigacyjne  
 4. Lista artykulow  
-4.1 Utworzenie modelu danych sprzedawanych artykułów
-a) ManufacturerList  
+4.1 Utworzenie modelu danych sprzedawanych artykułów  
+	a) ManufacturerList  
   
-b) Manufacturer  
-Fields: manufacturer, manufacturer_logo  
+	b) Manufacturer  
+	Fields: manufacturer, manufacturer_logo  
   
-c) Board  
-Fields: description, image, long_description, manufacturer, manufacturer_logo, name  
+	c) Board  
+	Fields: description, image, long_description, manufacturer, manufacturer_logo, name  
   
-d)BoardTypes  
-Fields: board_type  
+	d)BoardTypes  
+	Fields: board_type  
   
-e) BoardSize  
-Fields: length, sail_max, sail_min, volume, width  
+	e) BoardSize  
+	Fields: length, sail_max, sail_min, volume, width  
   
 4.2 Utworzenie kontrolera pobierajacego liste dostępnych artykułów (EntityFramewortkCore)
 4.3 Kontroler pobierajacy artykuły danej kategorii
