@@ -60,3 +60,4 @@
 3. [Dodanie kontrolera](Documentation/Controler.md)  
 
 ## Tutoriale oraz przydatne linki:  
+[EntityFrameworkCore](Tutorials.md)  
