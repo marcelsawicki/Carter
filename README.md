@@ -52,3 +52,9 @@
 18. Dodawanie komentarzy pod wybranym artykułem  
 19. Śledzenie statusu wysyłkia artykułu  
 20. Wirtualne przechodzenie po sklepie  
+  
+## Dokumentacja  
+
+1. [Dodawanie nowego komponentu](Documentation/addcomponent.md)  
+2. [Dodanie EntityFramewortkCore i Context](Documentation/efcore.md)  
+3. [Dodanie kontrolera](Documentation/controler.md)  
