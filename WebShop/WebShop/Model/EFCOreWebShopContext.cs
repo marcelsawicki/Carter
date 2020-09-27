@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebShop.Model
 {
-    public class EFCOreWebShopContext : DbContext
+    public class EFCoreWebShopContext : DbContext
     {
             public DbSet<Board> Boards { get; set; }
             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
