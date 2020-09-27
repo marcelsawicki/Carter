@@ -56,5 +56,7 @@
 ## Dokumentacja  
 
 1. [Dodawanie nowego komponentu](Documentation/Komponent.md)  
-2. [Dodanie EntityFramewortkCore i Context](Documentation/Efcore.md)  
+2. [Dodanie EntityFramewortkCore i Context](Documentation/EFCore.md)  
 3. [Dodanie kontrolera](Documentation/Controler.md)  
+
+## Tutoriale oraz przydatne linki:  
