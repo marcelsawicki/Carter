@@ -21,11 +21,11 @@
 	e) BoardSize  
 	Fields: length, sail_max, sail_min, volume, width  
   
-4.2 Utworzenie kontrolera pobierajacego liste dostępnych artykułów (EntityFramewortkCore)
-4.3 Kontroler pobierajacy artykuły danej kategorii
-4.4 Kontroler pobierający tylko dostępne artykuły danej kategorii
-4.5 Widok wyswietlajacy artykuły danej kategorii
-4.6 Widok wyswietlajacy tylko dostępne artykuły danej kategorii
+4.2 Utworzenie kontrolera pobierajacego liste dostępnych artykułów (EntityFramewortkCore)  
+4.3 Kontroler pobierajacy artykuły danej kategorii  
+4.4 Kontroler pobierający tylko dostępne artykuły danej kategorii  
+4.5 Widok wyswietlajacy artykuły danej kategorii  
+4.6 Widok wyswietlajacy tylko dostępne artykuły danej kategorii  
 5. Widok detali wybranego artykulu  
 6. Koszyk  
 6.1 Widok koszyka z mozliwoscia dodawania i odejmowania elementow w koszyku  
