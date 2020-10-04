@@ -59,5 +59,8 @@
 2. [Dodanie EntityFramewortkCore i Context](Documentation/EFCore.md)  
 3. [Dodanie kontrolera](Documentation/Controler.md)  
 
+## Skrypty SQL:  
+[Utworzenie tabeli Boards](Documentation/SQL/BoardsDbTableCreate.sql)  
+
 ## Tutoriale oraz przydatne linki:  
 [Plik z linkami do tutoriali](Documentation/Tutorial.md)  
