@@ -8,10 +8,10 @@ namespace WebShop.Model
 {
     public class EFCoreWebShopContext : DbContext
     {
-            public DbSet<Board> Boards { get; set; }
-            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            {
-                optionsBuilder.UseSqlServer(@"Server=.\;Database=EFCoreWebDemo;Trusted_Connection=True;MultipleActiveResultSets=true");
-            }
+        public EFCoreWebShopContext(DbContextOptions<EFCoreWebShopContext> options): base(options)
+        {
+
+        }
+        public DbSet<Board> Boards { get; set; }
     }
 }

@@ -2,23 +2,20 @@
 
 <p>This component demonstrates fetching all boards list from the server.</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!boards"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="boards">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
+      <th>Id</th>
+      <th>Name</th>
+      
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
+    <tr *ngFor="let board of boards">
+      <td>{{ board.id }}</td>
+      <td>{{ board.name }}</td>
     </tr>
   </tbody>
 </table>

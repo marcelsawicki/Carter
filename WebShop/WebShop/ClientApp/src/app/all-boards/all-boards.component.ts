@@ -6,18 +6,16 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './all-boards.component.html'
 })
 export class AllBoardsComponent {
-  public forecasts: WeatherForecast[];
+  public boards: Boards[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'allboards').subscribe(result => {
-      this.forecasts = result;
+    http.get<Boards[]>(baseUrl + 'api/boards').subscribe(result => {
+      this.boards = result;
     }, error => console.error(error));
   }
 }
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+interface Boards {
+  id: number;
+  name: string;
 }
