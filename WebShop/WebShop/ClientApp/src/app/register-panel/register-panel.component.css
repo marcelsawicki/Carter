@@ -1,4 +1,4 @@
-.login_sidenav {
+.register_sidenav {
   height: 100%;
   width: 450px;
   position: fixed; /*pozostaje na miejscu*/
@@ -7,7 +7,7 @@
   padding-top: 60px; /* wypełnienie przesuwa treść o 60 px w dół */
 }
 
-.login_sidenav .row {
+.register_sidenav .row {
   padding: 20px;
   font-size: 24px;
 }
@@ -18,7 +18,7 @@
   color: midnightblue;
 }
 
-.login_sidenav .closebtn {
+.register_sidenav .closebtn {
   position: absolute;
   top: 60px;
   right: 25px;
@@ -27,11 +27,11 @@
   color: white;
 }
 
-.login_sidenav a:hover, .offcanvas a:focus {
+.register_sidenav a:hover, .offcanvas a:focus {
   color: #f1f1f1;
 }
 
-.login_sidenav a {
+.register_sidenav a {
   padding: 8px 8px 8px 32 px;
   text-decoration: none;
   font-size: 25px;

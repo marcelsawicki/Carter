@@ -11,6 +11,9 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AllBoardsComponent } from './all-boards/all-boards.component';
 import { LoginPanelComponent } from './login-panel/login-panel.component';
+import { RegisterPanelComponent } from './register-panel/register-panel.component';
+import { CartPanelComponent } from './cart-panel/cart-panel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,9 @@ import { LoginPanelComponent } from './login-panel/login-panel.component';
     CounterComponent,
     FetchDataComponent,
     AllBoardsComponent,
-    LoginPanelComponent
+    LoginPanelComponent,
+    RegisterPanelComponent,
+    CartPanelComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,6 +36,8 @@ import { LoginPanelComponent } from './login-panel/login-panel.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'all-boards', component: AllBoardsComponent },
       { path: 'login-panel', component: LoginPanelComponent },
+      { path: 'register-panel', component: RegisterPanelComponent },
+      { path: 'cart-panel', component: CartPanelComponent },
     ])
   ],
   providers: [],
