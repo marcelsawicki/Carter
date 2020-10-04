@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AllBoardsComponent } from './all-boards/all-boards.component';
-
+import { LoginPanelComponent } from './login-panel/login-panel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +18,8 @@ import { AllBoardsComponent } from './all-boards/all-boards.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    AllBoardsComponent
+    AllBoardsComponent,
+    LoginPanelComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +30,7 @@ import { AllBoardsComponent } from './all-boards/all-boards.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'all-boards', component: AllBoardsComponent },
+      { path: 'login-panel', component: LoginPanelComponent },
     ])
   ],
   providers: [],
