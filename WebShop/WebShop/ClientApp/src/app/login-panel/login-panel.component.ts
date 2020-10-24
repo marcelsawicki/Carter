@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-panel',
@@ -7,5 +8,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login-panel.component.css']
 })
 export class LoginPanelComponent {
+  constructor(private router: Router) {
+  }
 
+  public loginProcess() {
+    console.log("Login begin");
+    this.router.navigate(['/cart-panel'])
+  }
 }
