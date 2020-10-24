@@ -9,7 +9,7 @@ export class AllBoardsComponent {
   public boards: Boards[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Boards[]>(baseUrl + 'api/boards').subscribe(result => {
+    http.get<Boards[]>(baseUrl + 'allboards').subscribe(result => {
       this.boards = result;
     }, error => console.error(error));
   }
