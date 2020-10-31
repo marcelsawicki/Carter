@@ -4,13 +4,17 @@
       <a href="#" class="closebtn">&times;</a>
       <div class="row">Please log in:</div>
       <div class="row">
-        <input class="sidenav-input" type="text" placeholder="User name">
+        <input class="sidenav-input" type="text" placeholder="User name" #login>
       </div>
       <div class="row">
-        <input class="sidenav-input" type="password" placeholder="Password">
+        <input class="sidenav-input" type="password" placeholder="Password" #password>
       </div>
       <div class="row">
-        <button class="btn btn-primary btn-lg" (click)="loginProcess()">Login</button>
+        <button class="btn btn-primary btn-lg" (click)="loginProcess(login.value,password.value)">Login</button>
+      </div>
+
+      <div class="row">
+        <button class="btn btn-primary btn-lg" (click)="logoutProcess()">Logout</button>
       </div>
     </div>
   </form>

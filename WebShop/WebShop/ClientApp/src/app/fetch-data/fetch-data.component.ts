@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fetch-data',
@@ -7,11 +8,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FetchDataComponent {
   public forecasts: WeatherForecast[];
+  Router: Router;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, router: Router) {
+    this.Router = router;
+    http.get<WeatherForecast[]>(baseUrl + 'home/test').subscribe(result => {
       this.forecasts = result;
-    }, error => console.error(error));
+    }, error => {
+        console.error('przkierowanie' + error);
+        this.Router.navigate(['/login-panel'])
+    });
   }
 }
 

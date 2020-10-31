@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebShop.Model;
 
 namespace WebShop.Controllers
 {
@@ -43,17 +44,50 @@ namespace WebShop.Controllers
             .ToArray();
         }
 
-
-        public IActionResult Login(string txtUserName, string txtPassword)
+        [HttpGet]
+        public IActionResult Login(string login, string password)
         
         {
             try
             {
-                if ((txtUserName.ToLower() == "admin") && (txtPassword == "123"))
+                if ((login.ToLower() == "admin") && (password == "123"))
                 {
                     var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, txtUserName)
+                    new Claim(ClaimTypes.Name, login)
+                };
+
+                    var identity = new ClaimsIdentity(
+                        claims, CookieAuthenticationDefaults.AuthenticationScheme
+                        );
+                    var principal = new ClaimsPrincipal(identity);
+                    var props = new AuthenticationProperties();
+                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props).Wait();
+                    return Ok("Logged in");
+
+                }
+                else
+                {
+                    return Unauthorized();
+                }
+            }
+            catch
+            {
+                return Unauthorized();
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Login([FromBody] Cred cred)
+
+        {
+            try
+            {
+                if ((cred.login.ToLower() == "admin") && (cred.password == "123"))
+                {
+                    var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, cred.login)
                 };
 
                     var identity = new ClaimsIdentity(
@@ -81,7 +115,7 @@ namespace WebShop.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return Ok("Loged out");
+            return Ok();
         }
     }
 }
