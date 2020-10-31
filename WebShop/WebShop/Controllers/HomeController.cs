@@ -63,6 +63,8 @@ namespace WebShop.Controllers
                     var principal = new ClaimsPrincipal(identity);
                     var props = new AuthenticationProperties();
                     HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props).Wait();
+                    var user = HttpContext.User.Identity.Name;
+
                     return Ok("Logged in");
 
                 }
@@ -96,6 +98,7 @@ namespace WebShop.Controllers
                     var principal = new ClaimsPrincipal(identity);
                     var props = new AuthenticationProperties();
                     HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props).Wait();
+                    var user = HttpContext.User.Identity.Name;
                     return RedirectToAction("Test", "Home");
 
                 }
