@@ -2,7 +2,7 @@
   height: 100%;
   width: 450px;
   position: fixed; /*pozostaje na miejscu*/
-  background-color: #ffc107;
+  background-color: darkgray;
   overflow-x: hidden; /* bez możliwości przewijania w pionie */
   padding-top: 60px; /* wypełnienie przesuwa treść o 60 px w dół */
 }
