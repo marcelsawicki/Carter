@@ -13,6 +13,7 @@ import { AllBoardsComponent } from './all-boards/all-boards.component';
 import { LoginPanelComponent } from './login-panel/login-panel.component';
 import { RegisterPanelComponent } from './register-panel/register-panel.component';
 import { CartPanelComponent } from './cart-panel/cart-panel.component';
+import { FruitsComponent } from './fruits/fruits.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CartPanelComponent } from './cart-panel/cart-panel.component';
     LoginPanelComponent,
     RegisterPanelComponent,
     CartPanelComponent,
+    FruitsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,6 +40,7 @@ import { CartPanelComponent } from './cart-panel/cart-panel.component';
       { path: 'login-panel', component: LoginPanelComponent },
       { path: 'register-panel', component: RegisterPanelComponent },
       { path: 'cart-panel', component: CartPanelComponent },
+      { path: 'fruits', component: FruitsComponent },
     ])
   ],
   providers: [],
