@@ -32,7 +32,7 @@
             <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/all-boards']">Bookstore</a>
+            <a class="nav-link text-dark" [routerLink]="['/all-boards']">Fruit shop</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/login-panel']">Login</a>
@@ -41,7 +41,8 @@
             <a class="nav-link text-dark" [routerLink]="['/register-panel']">Register</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/cart-panel']"> <img class="cart" src="../../assets/images/shopping-cart.png"/></a>
+            <a class="nav-link text-dark" [routerLink]="['/cart-panel']"> <img class="cart" src="../../assets/images/shopping-cart.png" /><span class='badge badge-warning' id='lblCartCount'> 6 </span></a>
+            
           </li>
         </ul>
       </div>

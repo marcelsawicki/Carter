@@ -19,3 +19,8 @@ code {
   width: 5%;
   height: 5%;
 }
+
+.shop-articles {
+  width: 10%;
+  display: block;
+}

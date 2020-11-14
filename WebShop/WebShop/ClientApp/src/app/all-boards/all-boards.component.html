@@ -9,13 +9,31 @@
     <tr>
       <th>Id</th>
       <th>Name</th>
-      
+
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let board of boards">
       <td>{{ board.id }}</td>
       <td>{{ board.name }}</td>
+      <td><img class="shop-articles" src=".\images\fruits\001-orange.png" /></td>
+      <td><button class="btn btn-primary btn-lg" (click)="logoutProcess()">Buy</button></td>
     </tr>
   </tbody>
 </table>
+
+<ul style="list-style: none;">
+  <li>
+    <img class="shop-articles" src=".\images\fruits\001-orange.png" />
+    Orange
+    <button class="btn btn-primary btn-lg" (click)="logoutProcess()">Buy</button>
+  </li>
+  
+  <li><img class="shop-articles" src=".\images\fruits\002-pear.png" />       </li>
+  <li><img class="shop-articles" src=".\images\fruits\003-melon.png" />      </li>
+  <li><img class="shop-articles" src=".\images\fruits\004-peanut.png" />     </li>
+  <li><img class="shop-articles" src=".\images\fruits\005-banana.png" />     </li>
+  <li><img class="shop-articles" src=".\images\fruits\006-Water melon.png" /></li>
+</ul>
+<br />
+Icons made by <a href="https://www.flaticon.com/authors/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
