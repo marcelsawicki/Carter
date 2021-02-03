@@ -1,0 +1,25 @@
+<h1 id="tableLabel">Books</h1>
+
+
+<p *ngIf="!receivedbooks"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="receivedbooks">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Author</th>
+      <th>Title</th>
+      <th>Publishing</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of receivedbooks">
+      <td>{{ book.id }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{ book.publishing }}</td>
+      <td>{{ book.year }}</td>
+    </tr>
+  </tbody>
+</table>
