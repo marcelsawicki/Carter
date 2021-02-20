@@ -7,7 +7,7 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]='["/"]'>Datacrafter - books and fruits</a>
+            <a class='navbar-brand' [routerLink]='["/"]'>Datacrafter</a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
@@ -29,22 +29,22 @@
             </li>
             <li [routerLinkActive]='["link-active"]'>
               <a [routerLink]='["/fruits"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-th-list'></span> Fruits
+                <span class='glyphicon glyphicon-apple'></span> Fruits
               </a>
             </li>
             <li [routerLinkActive]='["link-active"]'>
               <a [routerLink]='["/fetch-books"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-th-list'></span> Fetch books
+                <span class='glyphicon glyphicon-book'></span> Fetch books
               </a>
             </li>
             <li [routerLinkActive]='["link-active"]'>
               <a [routerLink]='["/login-panel"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-th-list'></span> Login
+                <span class='glyphicon glyphicon-user'></span> Login
               </a>
             </li>
             <li [routerLinkActive]='["link-active"]'>
               <a [routerLink]='["/cart-panel"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-th-list'></span> <img class="cart" src="../../assets/images/shopping-cart.png" /><span class='badge badge-warning' id='lblCartCount'> 0 </span>
+                <span class='glyphicon glyphicon-shopping-cart'></span>  Cart <span class='badge badge-warning' id='lblCartCount'> 0 </span> 
               </a>
             </li>
           </ul>

@@ -1,21 +1,32 @@
-<div id="sideNav" class="login_sidenav">
+<!--<div id="sideNav" class="login_sidenav">-->
   <form>
-    <div class="container">
-      <a href="#" class="closebtn">&times;</a>
-      <div class="row">Please log in:</div>
-      <div class="row">
-        <input class="sidenav-input" type="text" placeholder="User name" #login>
-      </div>
-      <div class="row">
-        <input class="sidenav-input" type="password" placeholder="Password" #password>
-      </div>
-      <div class="row">
-        <button class="btn btn-primary btn-lg" (click)="loginProcess(login.value,password.value)">Login</button>
-      </div>
-
-      <div class="row">
-        <button class="btn btn-primary btn-lg" (click)="logoutProcess()">Logout</button>
+    <div class="modal-dialog modal-dialog-centered" role="document" id="modalwindow1">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Please log in</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <!--<span aria-hidden="true">&times;</span>-->
+            <a href="#" class="closebtn">&times;</a>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <input class="sidenav-input input-group" type="text" placeholder="User name" #login>
+            </div>
+            <div class="row">
+              <input class="sidenav-input input-group" type="password" placeholder="Password" #password>
+            </div>
+        
+    </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary btn-lg" (click)="loginProcess(login.value,password.value)">Login</button>
+          <button class="btn btn-secondary btn-lg" (click)="logoutProcess()">Logout</button>
+        </div>
       </div>
     </div>
+
+    
   </form>
-</div>
+<!--</div>-->
