@@ -13,6 +13,7 @@ import { FetchBooksComponent } from './fetch-books/fetch-books.component';
 import { LoginPanelComponent } from './login-panel/login-panel.component';
 import { UnauthorizedMessageComponent } from './unauthorized-message/unauthorized-message.component';
 import { FruitsComponent } from './fruits/fruits.component';
+import { FruitsDetalComponent } from './fruits-detal/fruits-detal.component';
 import { CartPanelComponent } from './cart-panel/cart-panel.component';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { CartPanelComponent } from './cart-panel/cart-panel.component';
     LoginPanelComponent,
     UnauthorizedMessageComponent,
     FruitsComponent,
+    FruitsDetalComponent,
     CartPanelComponent
   ],
   imports: [
@@ -40,6 +42,7 @@ import { CartPanelComponent } from './cart-panel/cart-panel.component';
       { path: 'login-panel', component: LoginPanelComponent },
       { path: 'unauthorized-message', component: UnauthorizedMessageComponent },
       { path: 'fruits', component: FruitsComponent },
+      { path: 'fruits-detal/:id', component: FruitsDetalComponent },
       { path: 'cart-panel', component: CartPanelComponent },
     ])
   ],
