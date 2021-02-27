@@ -19,8 +19,11 @@ export class FruitsComponent {
       this.Router.navigate(['/login-panel'])
     });
   }
-  public buyProcess() {
+  public buyProcess(boardId:number, boardName:string) {
     console.log("Buying begin");
+    let key = 'Item ' + boardId;
+    sessionStorage.setItem(key, boardName);
+    console.log(boardId);
     let cartCount = document.getElementById('lblCartCount');
     let incrementNumber = parseInt(cartCount.innerText) + 1;
     cartCount.innerText = incrementNumber.toString();

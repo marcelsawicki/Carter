@@ -28,7 +28,7 @@
       <td>{{ board.summary }}</td>
       <td>{{ board.picture }}</td>
       <td><img class="shop-articles" src="{{ board.picture }}" /></td>
-      <td><button class="btn btn-primary btn-lg" (click)="buyProcess()">Buy</button></td>
+      <td><button class="btn btn-primary btn-lg" (click)="buyProcess(board.id, board.name)">Buy</button></td>
     </tr>
   </tbody>
 </table>
