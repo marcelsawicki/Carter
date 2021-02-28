@@ -38,7 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Folder Include="wwwroot\images\travel-accessories\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

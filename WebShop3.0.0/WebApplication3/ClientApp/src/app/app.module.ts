@@ -15,6 +15,8 @@ import { UnauthorizedMessageComponent } from './unauthorized-message/unauthorize
 import { FruitsComponent } from './fruits/fruits.component';
 import { FruitsDetalComponent } from './fruits-detal/fruits-detal.component';
 import { CartPanelComponent } from './cart-panel/cart-panel.component';
+import { TravelComponent } from './travel/travel.component';
+import { TravelDetalComponent } from './travel-detal/travel-detal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CartPanelComponent } from './cart-panel/cart-panel.component';
     UnauthorizedMessageComponent,
     FruitsComponent,
     FruitsDetalComponent,
-    CartPanelComponent
+    CartPanelComponent,
+    TravelComponent,
+    TravelDetalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -43,6 +47,8 @@ import { CartPanelComponent } from './cart-panel/cart-panel.component';
       { path: 'unauthorized-message', component: UnauthorizedMessageComponent },
       { path: 'fruits', component: FruitsComponent },
       { path: 'fruits-detal/:id', component: FruitsDetalComponent },
+      { path: 'travel', component: TravelComponent },
+      { path: 'travel-detal/:id', component: TravelDetalComponent },
       { path: 'cart-panel', component: CartPanelComponent },
     ])
   ],
