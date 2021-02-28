@@ -13,16 +13,12 @@ namespace WebApplication3.Controllers
     [Route("[controller]")]
     public class FruitsController : ControllerBase
     {
+        List<Fruit> fruitCollection = new List<Fruit>();
+        DateTime dateTime = new DateTime();
 
-        [HttpGet]
-        //[Authorize]
-        public IEnumerable<Fruit> Get()
+        public FruitsController()
         {
-            var rng = new Random();
-            List<Fruit> fruitCollection = new List<Fruit>();
-            DateTime dateTime = new DateTime();
-
-            fruitCollection.Add(new Fruit { Id = 1, Date = dateTime, Name="Orange", Picture= @".\images\fruits\001-orange.png" });
+            fruitCollection.Add(new Fruit { Id = 1, Date = dateTime, Name = "Orange", Picture = @".\images\fruits\001-orange.png" });
             fruitCollection.Add(new Fruit { Id = 2, Date = dateTime, Name = "Pear", Picture = @".\images\fruits\002-pear.png" });
             fruitCollection.Add(new Fruit { Id = 3, Date = dateTime, Name = "Melon", Picture = @".\images\fruits\003-melon.png" });
             fruitCollection.Add(new Fruit { Id = 4, Date = dateTime, Name = "Peanut", Picture = @".\images\fruits\004-peanut.png" });
@@ -46,8 +42,20 @@ namespace WebApplication3.Controllers
             fruitCollection.Add(new Fruit { Id = 22, Date = dateTime, Name = "Avocado", Picture = @".\images\fruits\022-avocado.png" });
             fruitCollection.Add(new Fruit { Id = 23, Date = dateTime, Name = "Melon", Picture = @".\images\fruits\023-melon.png" });
             fruitCollection.Add(new Fruit { Id = 24, Date = dateTime, Name = "Berry", Picture = @".\images\fruits\024-berry.png" });
+        }
 
+        [HttpGet]
+        //[Authorize]
+        public IEnumerable<Fruit> Get()
+        {
             return fruitCollection;
+        }
+
+        // GET: api/Fruit/5
+        [HttpGet("{id}")]
+        public Fruit Get([FromRoute] int id)
+        {
+            return fruitCollection.Where(x => x.Id==id).FirstOrDefault();
         }
     }
 }
