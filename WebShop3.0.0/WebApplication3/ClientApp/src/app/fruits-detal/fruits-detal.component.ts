@@ -48,5 +48,6 @@ export class FruitsDetalComponent {
 interface Fruitdetail {
   id: number;
   name: string;
+  picture: string;
 }
 
