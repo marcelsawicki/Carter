@@ -2,4 +2,5 @@
 <p>Cart panel</p>
 <h1>List of items in cart:</h1>
 <p *ngFor="let item of mylist">{{ item }}</p>
+<p><button class="btn btn-primary btn-lg" (click)="orderCart()">Order items</button></p>
 <p><button class="btn btn-primary btn-lg" (click)="clearCart()">Remove items</button></p>

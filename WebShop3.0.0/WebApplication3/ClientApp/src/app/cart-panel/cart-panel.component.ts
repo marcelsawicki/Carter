@@ -25,4 +25,7 @@ export class CartPanelComponent {
     let incrementNumber = 0;
     cartCount.innerText = incrementNumber.toString();
   }
+  public orderCart() {
+    console.log("Making order...")
+  }
 }
