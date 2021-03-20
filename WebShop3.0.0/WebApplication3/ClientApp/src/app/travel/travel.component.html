@@ -1,6 +1,8 @@
-<h1 id="tableLabel">Travel accessories</h1>
+<h1 id="tableLabel">Accessories</h1>
 
-<p>This component demonstrates fetching fruits list from the server.</p>
+<p>Przyjęto, że 1s to 36 zł (na podstawie ceny ciepłego posiłku w gospodzie).</p>
+<p>1 ZK = 20 s = 240 p</p>
+<p>1 złota korona = 20 srebrne szylingi = 240 brązowe pensy (miedziaki)</p>
 
 <p *ngIf="!boards"><em>Loading...</em></p>
 
@@ -8,11 +10,14 @@
   <thead>
     <tr>
       <th>Id</th>
-      <th>Name</th>
-      <th>Picture</th>
-      <th>Price</th>
-      <th>Button</th>
-      <th>Description</th>
+      <th>Nazwa</th>
+      <th>Zdjęcie</th>
+      <th>Cena (PLN)</th>
+      <th>Złote korony (ZK)</th>
+      <th>Srebrne szylingi (S)</th>
+      <th>Brązowe pensy (miedziaki) (P)</th>
+      <th>Dodaj do koszyka</th>
+      <th>Opis</th>
     </tr>
   </thead>
   <tbody>
@@ -25,8 +30,11 @@
 
       </td>
       <td><img class="shop-articles" src="{{ board.picture }}" /></td>
-      <td>{{ board.price }}</td>
-      <td><button class="btn btn-primary btn-lg" (click)="buyProcess(board.id, board.name)">Buy</button></td>
+      <td>{{ board.priceZK*20*36+board.priceSS*36+board.priceP*3 }}</td>
+      <td>{{ board.priceZK }}</td>
+      <td>{{ board.priceSS }}</td>
+      <td>{{ board.priceP }}</td>
+      <td><button class="btn btn-primary btn-lg" (click)="buyProcess(board.id, board.name, board.priceZK, board.priceSS, board.priceP)">Dodaj do koszyka</button></td>
       <td>Description</td>
     </tr>
   </tbody>

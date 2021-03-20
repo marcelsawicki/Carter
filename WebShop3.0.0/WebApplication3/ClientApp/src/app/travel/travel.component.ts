@@ -19,10 +19,12 @@ export class TravelComponent {
       this.Router.navigate(['/login-panel'])
     });
   }
-  public buyProcess(boardId:number, boardName:string) {
+  public buyProcess(boardId: number, boardName: string, priceZK:number, priceSS:number, priceP:number) {
     console.log("Buying begin");
     let key = 'Item ' + boardId;
-    sessionStorage.setItem(key, boardName);
+    //sessionStorage.setItem(key, boardName);
+    let article = { 'boardName': boardName, 'priceZK': priceZK, 'priceSS': priceSS, 'priceP': priceP};
+    sessionStorage.setItem(key, JSON.stringify(article));
     console.log(boardId);
     let cartCount = document.getElementById('lblCartCount');
     let incrementNumber = parseInt(cartCount.innerText) + 1;
@@ -33,5 +35,8 @@ export class TravelComponent {
 interface Boards {
   id: number;
   price: number;
+  priceZK: number;
+  priceSS: number;
+  priceP: number;
   name: string;
 }

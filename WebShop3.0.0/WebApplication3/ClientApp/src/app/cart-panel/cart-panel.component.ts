@@ -12,6 +12,8 @@ export class CartPanelComponent {
     for (let i = 0; i < sessionStorage.length; i++) {
       let key = sessionStorage.key(i);
       let value = sessionStorage.getItem(key);
+      var obj = JSON.parse(value);
+      //mylist.push(obj.boardName);
       mylist.push(value);
       this.mylist = mylist;
       console.log(key, value);
@@ -27,5 +29,23 @@ export class CartPanelComponent {
   }
   public orderCart() {
     console.log("Making order...")
+  }
+
+  public closeModalWindow() {
+    let modalwindow1 = document.getElementById('modalwindow1');
+    modalwindow1.hidden = true;
+  }
+  public openModalWindow() {
+    let modalwindow1 = document.getElementById('modalwindow1');
+    modalwindow1.hidden = false;
+  }
+  public saveChangesModalWindow() {
+    let modalwindowmsg = document.getElementById('modalwindowmsg');
+    modalwindowmsg.innerText = 'Not saved - in development.';
+  }
+  ngOnInit() {
+    // Called after the constructor and called  after the first ngOnChanges()
+    let modalwindow1 = document.getElementById('modalwindow1');
+    modalwindow1.hidden = true;
   }
 }

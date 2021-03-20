@@ -5,16 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  public closeModalWindow() {
-    let modalwindow1 = document.getElementById('modalwindow1');
-    modalwindow1.hidden = true;
-  }
-  public openModalWindow() {
-    let modalwindow1 = document.getElementById('modalwindow1');
-    modalwindow1.hidden = false;
-  }
-  public saveChangesModalWindow() {
-    let modalwindowmsg = document.getElementById('modalwindowmsg');
-    modalwindowmsg.innerText = 'Not saved - in development.';
+  public rolldice(dice:number) {
+    let dicevalue = document.getElementById('dicevalue'+dice);
+    dicevalue.innerHTML += (Math.floor(Math.random() * dice)+1).toString() + ', ';
   }
 }

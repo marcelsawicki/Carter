@@ -1,28 +1,75 @@
-<h1>This is a software portfolio only, please do not consider it as a shop.</h1>
-<br />
-<br />
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="openModalWindow()">
-  Launch window modal
-</button>
+<h1>Dices</h1>
 <br />
 <br />
 
-<div class="modal-dialog modal-dialog-centered" role="document" id="modalwindow1">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLongTitle">Modal counter window</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModalWindow()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body" id="modalwindowmsg">
-      This website uses cookies.
-      By continuing we assume your permission to deploy cookies.
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModalWindow()">Close</button>
-      <button type="button" class="btn btn-primary" (click)="saveChangesModalWindow()">Save changes</button>
-    </div>
-  </div>
-</div>
+<table class="tg">
+  <thead>
+    <tr>
+      <th class="tg-0lax">
+        
+      </th>
+      <th class="tg-0lax">
+        
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="tg-0lax">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="rolldice(100)">d100</button>
+      </td>
+      <td class="tg-0lax">
+        <div id="dicevalue100"></div>
+      </td>
+    </tr>
+    <br />
+    <tr>
+      <td class="tg-0lax">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="rolldice(10)">d10</button>
+      </td>
+      <td class="tg-0lax">
+        <div id="dicevalue10"></div>
+      </td>
+    </tr>
+    <br />
+    <tr>
+      <td class="tg-0lax">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="rolldice(6)">d6</button>
+      </td>
+      <td class="tg-0lax">
+        <div id="dicevalue6"></div>
+      </td>
+    </tr>
+    <br />
+    <tr>
+      <td class="tg-0lax">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="rolldice(4)">d4</button>
+      </td>
+      <td class="tg-0lax">
+        <div id="dicevalue4"></div>
+      </td>
+    </tr>
+    <br />
+    <tr>
+      <td class="tg-0lax">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="rolldice(12)">d12</button>
+      </td>
+      <td class="tg-0lax">
+        <div id="dicevalue12"></div>
+      </td>
+    </tr>
+    <br />
+    <tr>
+      <td class="tg-0lax">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="rolldice(8)">d8</button>
+      </td>
+      <td class="tg-0lax">
+        <div id="dicevalue8"></div>
+      </td>
+    </tr>
+    <br />
+  </tbody>
+</table>
+
+
 
