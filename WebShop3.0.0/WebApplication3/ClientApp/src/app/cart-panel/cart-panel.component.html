@@ -1,10 +1,23 @@
 <h1>Cart panel</h1>
 <p>Cart panel</p>
 <h1>List of items in cart:</h1>
-<p *ngFor="let item of mylist">{{ item }}</p>
+<table class="tg">
+  <thead>
+    <p *ngFor="let item of mylist">
+
+    <tr>
+      <th>{{ item.boardName }}</th>
+      <th>{{ item.priceZK }}zk </th>
+      <th>{{ item.priceSS }}s </th>
+      <th>{{ item.priceP }}p</th>
+    </tr>
+    </p>
+  </thead>
+</table>
+Razem:
+<div id="totalZK">{{ totalZK }} zk</div><div id="totalSS">{{ totalSS }} ss</div><div id="totalP">{{ totalP }} p</div>
 <p><button class="btn btn-primary btn-lg" (click)="orderCart()">Order items</button></p>
 <p><button class="btn btn-primary btn-lg" (click)="clearCart()">Remove items</button></p>
-
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="openModalWindow()">
   Modal window
