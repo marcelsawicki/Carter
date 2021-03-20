@@ -19,17 +19,17 @@ namespace WebApplication3.Controllers
         public TravelaccessoriesController()
         {
             travelCollection.Add(new Travel { Id = 1, Date = dateTime, Price = 1, PriceZK = 0, PriceSS = 1, PriceP = 0, Name = "Ciepły posiłek w gospodzie", Picture = @".\images\travel-accessories\item.jpg" });
-            travelCollection.Add(new Travel { Id = 2, Date = dateTime, Price = 2, PriceZK = 0, PriceSS = 10, PriceP = 0, Name = "Prywatny pokój na jedną noc", Picture = @".\images\travel-accessories\item.jpg" });
-            travelCollection.Add(new Travel { Id = 3, Date = dateTime, Price = 3, PriceZK = 0, PriceSS = 0, PriceP = 10, Name = "Wspólna izba na jedną noc", Picture = @".\images\travel-accessories\item.jpg" });
+            travelCollection.Add(new Travel { Id = 2, Date = dateTime, Price = 2, PriceZK = 0, PriceSS = 10, PriceP = 0, Name = "Prywatny pokój na jedną noc", Picture = @".\images\travel-accessories\ship.jpg" });
+            travelCollection.Add(new Travel { Id = 3, Date = dateTime, Price = 3, PriceZK = 0, PriceSS = 0, PriceP = 10, Name = "Wspólna izba na jedną noc", Picture = @".\images\travel-accessories\skrzynia.jpg" });
             travelCollection.Add(new Travel { Id = 4, Date = dateTime, Price = 4, PriceZK = 4, PriceSS = 0, PriceP = 0, Name = "Koń pociągowy", Picture = @".\images\travel-accessories\item.jpg" });
-            travelCollection.Add(new Travel { Id = 5, Date = dateTime, Price = 0, PriceZK = 225, PriceSS = 0, PriceP = 0, Name = "Barka rzeczna", Picture = @".\images\travel-accessories\item.jpg" });
-            travelCollection.Add(new Travel { Id = 6, Date = dateTime, Price = 0, PriceZK = 75, PriceSS = 0, PriceP = 0, Name = "Wóz", Picture = @".\images\travel-accessories\item.jpg" });
+            travelCollection.Add(new Travel { Id = 5, Date = dateTime, Price = 0, PriceZK = 225, PriceSS = 0, PriceP = 0, Name = "Barka rzeczna", Picture = @".\images\travel-accessories\ship.jpg" });
+            travelCollection.Add(new Travel { Id = 6, Date = dateTime, Price = 0, PriceZK = 75, PriceSS = 0, PriceP = 0, Name = "Wóz", Picture = @".\images\travel-accessories\skrzynia.jpg" });
             travelCollection.Add(new Travel { Id = 7, Date = dateTime, Price = 0, PriceZK = 150, PriceSS = 0, PriceP = 0, Name = "Powóz", Picture = @".\images\travel-accessories\item.jpg" });
-            travelCollection.Add(new Travel { Id = 8, Date = dateTime, Price = 0, PriceZK = 0, PriceSS = 3, PriceP = 0, Name = "Tragarz - dniówka", Picture = @".\images\travel-accessories\item.jpg" });
-            travelCollection.Add(new Travel { Id = 9, Date = dateTime, Price = 0, PriceZK = 0, PriceSS = 9, PriceP = 0, Name = "Prawnik - dniówka", Picture = @".\images\travel-accessories\item.jpg" });
+            travelCollection.Add(new Travel { Id = 8, Date = dateTime, Price = 0, PriceZK = 0, PriceSS = 3, PriceP = 0, Name = "Tragarz - dniówka", Picture = @".\images\travel-accessories\ship.jpg" });
+            travelCollection.Add(new Travel { Id = 9, Date = dateTime, Price = 0, PriceZK = 0, PriceSS = 9, PriceP = 0, Name = "Prawnik - dniówka", Picture = @".\images\travel-accessories\skrzynia.jpg" });
             travelCollection.Add(new Travel { Id = 10, Date = dateTime, Price = 0, PriceZK = 20000, PriceSS = 0, PriceP = 0, Name = "Nieruchomość w Boegenhafen", Picture = @".\images\travel-accessories\item.jpg" });
             travelCollection.Add(new Travel { Id = 11, Date = dateTime, Price = 0, PriceZK = 180, PriceSS = 0, PriceP = 0, Name = "Powóz + 2 konie wierzchowe", Picture = @".\images\travel-accessories\item.jpg" });
-            travelCollection.Add(new Travel { Id = 12, Date = dateTime, Price = 0, PriceZK = 15, PriceSS = 0, PriceP = 0, Name = "Pokój na miesiąc", Picture = @".\images\travel-accessories\item.jpg" });
+            travelCollection.Add(new Travel { Id = 12, Date = dateTime, Price = 0, PriceZK = 15, PriceSS = 0, PriceP = 0, Name = "Pokój na miesiąc", Picture = @".\images\travel-accessories\skrzynia.jpg" });
             travelCollection.Add(new Travel { Id = 13, Date = dateTime, Price = 0, PriceZK = 0, PriceSS = 16, PriceP = 0, Name = "Sztylet", Picture = @".\images\travel-accessories\item.jpg" });
             travelCollection.Add(new Travel { Id = 14, Date = dateTime, Price = 0, PriceZK = 5, PriceSS = 0, PriceP = 0, Name = "Kusza", Picture = @".\images\travel-accessories\item.jpg" });
             travelCollection.Add(new Travel { Id = 15, Date = dateTime, Price = 0, PriceZK = 0, PriceSS = 5, PriceP = 0, Name = "Bełt (12 szt.)", Picture = @".\images\travel-accessories\item.jpg" });
