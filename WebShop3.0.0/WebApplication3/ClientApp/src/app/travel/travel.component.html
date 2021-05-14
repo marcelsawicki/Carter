@@ -1,9 +1,5 @@
 <h1 id="tableLabel">Accessories</h1>
 
-<p>Przyjęto, że 1s to 36 zł (na podstawie ceny ciepłego posiłku w gospodzie).</p>
-<p>1 ZK = 20 s = 240 p</p>
-<p>1 złota korona = 20 srebrne szylingi = 240 brązowe pensy (miedziaki)</p>
-
 <p *ngIf="!boards"><em>Loading...</em></p>
 
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="boards">
@@ -12,10 +8,10 @@
       <th>Id</th>
       <th>Nazwa</th>
       <th>Zdjęcie</th>
-      <th>Cena (PLN)</th>
-      <th>Złote korony (ZK)</th>
-      <th>Srebrne szylingi (S)</th>
-      <th>Brązowe pensy (miedziaki) (P)</th>
+      <th>Cena </th>
+      <th>Cena EUR</th>
+      <th>Cena USD</th>
+      <th>Cena PLN</th>
       <th>Dodaj do koszyka</th>
       <th>Opis</th>
     </tr>
@@ -30,11 +26,11 @@
 
       </td>
       <td><img class="shop-articles" src="{{ board.picture }}" /></td>
-      <td>{{ board.priceZK*20*36+board.priceSS*36+board.priceP*3 }}</td>
-      <td>{{ board.priceZK }}</td>
-      <td>{{ board.priceSS }}</td>
-      <td>{{ board.priceP }}</td>
-      <td><button class="btn btn-primary btn-lg" (click)="buyProcess(board.id, board.name, board.priceZK, board.priceSS, board.priceP)">Dodaj do koszyka</button></td>
+      <td>{{ board.price }}</td>
+      <td>{{ board.priceEUR }}</td>
+      <td>{{ board.priceUSD }}</td>
+      <td>{{ board.pricePLN }}</td>
+      <td><button class="btn btn-primary btn-lg" (click)="buyProcess(board.id, board.name, board.priceEUR, board.priceUSD, board.pricePLN)">Dodaj do koszyka</button></td>
       <td>Description</td>
     </tr>
   </tbody>

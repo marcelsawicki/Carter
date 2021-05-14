@@ -31,7 +31,7 @@ export class CartPanelComponent {
       let value = sessionStorage.getItem(key);
       let obj = JSON.parse(value);
       let prettyArticle: Articles = obj as Articles;
-      totalZZZ += prettyArticle.priceZK;
+      totalZZZ += prettyArticle.priceUSD;
     }
     return totalZZZ;
   }
@@ -43,7 +43,7 @@ export class CartPanelComponent {
       let value = sessionStorage.getItem(key);
       let obj = JSON.parse(value);
       let prettyArticle: Articles = obj as Articles;
-      totalSSS += prettyArticle.priceSS;
+      totalSSS += prettyArticle.priceEUR;
     }
     return totalSSS;
   }
@@ -55,7 +55,7 @@ export class CartPanelComponent {
       let value = sessionStorage.getItem(key);
       let obj = JSON.parse(value);
       let prettyArticle: Articles = obj as Articles;
-      totalPPP += prettyArticle.priceP;
+      totalPPP += prettyArticle.pricePLN;
     }
     return totalPPP;
   }
@@ -100,8 +100,8 @@ export class CartPanelComponent {
 interface Articles {
   id: number;
   price: number;
-  priceZK: number;
-  priceSS: number;
-  priceP: number;
+  priceEUR: number;
+  priceUSD: number;
+  pricePLN: number;
   name: string;
 }
