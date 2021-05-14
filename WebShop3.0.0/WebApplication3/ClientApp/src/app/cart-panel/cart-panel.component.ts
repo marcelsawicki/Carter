@@ -8,9 +8,9 @@ import { forEach } from '@angular/router/src/utils/collection';
 export class CartPanelComponent {
   public mylist: Articles[];
   public articles: Articles[];
-  public totalZK: number;
-  public totalSS: number;
-  public totalP: number;
+  public totalEUR: number;
+  public totalUSD: number;
+  public totalPLN: number;
   constructor()
   {
     let mylist = [];
@@ -24,7 +24,7 @@ export class CartPanelComponent {
       console.log(key, value);
     }  
   }
-  public calculateTotalZK(): number {
+  public calculateTotalEUR(): number {
     let totalZZZ: number = 0;;
     for (let i = 0; i < sessionStorage.length; i++) {
       let key = sessionStorage.key(i);
@@ -36,7 +36,7 @@ export class CartPanelComponent {
     return totalZZZ;
   }
 
-  public calculateTotalSS(): number {
+  public calculateTotalUSD(): number {
     let totalSSS: number=0;
     for (let i = 0; i < sessionStorage.length; i++) {
       let key = sessionStorage.key(i);
@@ -48,7 +48,7 @@ export class CartPanelComponent {
     return totalSSS;
   }
 
-  public calculateTotalP(): number {
+  public calculateTotalPLN(): number {
     let totalPPP: number=0;
     for (let i = 0; i < sessionStorage.length; i++) {
       let key = sessionStorage.key(i);
@@ -67,9 +67,9 @@ export class CartPanelComponent {
     let cartCount = document.getElementById('lblCartCount');
     let incrementNumber = 0;
     cartCount.innerText = incrementNumber.toString();
-    this.totalZK = 0;
-    this.totalSS = 0;
-    this.totalP = 0;
+    this.totalEUR = 0;
+    this.totalUSD = 0;
+    this.totalPLN = 0;
   }
   public orderCart() {
     console.log("Making order...")
@@ -91,9 +91,9 @@ export class CartPanelComponent {
     // Called after the constructor and called  after the first ngOnChanges()
     let modalwindow1 = document.getElementById('modalwindow1');
     modalwindow1.hidden = true;
-    this.totalZK = this.calculateTotalZK();
-    this.totalSS = this.calculateTotalSS();
-    this.totalP = this.calculateTotalP();
+    this.totalEUR = this.calculateTotalEUR();
+    this.totalUSD = this.calculateTotalUSD();
+    this.totalPLN = this.calculateTotalPLN();
   }
 }
 

@@ -7,15 +7,15 @@
 
     <tr>
       <th>{{ item.boardName }}</th>
-      <th>{{ item.priceEUR }}zk </th>
-      <th>{{ item.priceUSD }}s </th>
-      <th>{{ item.pricePLN }}p</th>
+      <th>{{ item.priceEUR }} EUR </th>
+      <th>{{ item.priceUSD }} USD </th>
+      <th>{{ item.pricePLN }} PLN</th>
     </tr>
     </p>
   </thead>
 </table>
 Razem:
-<div id="totalZK">{{ totalZK }} zk</div><div id="totalSS">{{ totalSS }} ss</div><div id="totalP">{{ totalP }} p</div>
+<div id="totalEUR">{{ totalEUR }} EUR</div><div id="totalUSD">{{ totalUSD }} USD</div><div id="totalPLN">{{ totalPLN }} PLN</div>
 <p><button class="btn btn-primary btn-lg" (click)="orderCart()">Order items</button></p>
 <p><button class="btn btn-primary btn-lg" (click)="clearCart()">Remove items</button></p>
 
