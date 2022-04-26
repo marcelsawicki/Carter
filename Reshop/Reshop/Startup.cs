@@ -25,7 +25,7 @@ namespace Reshop
             services.AddControllersWithViews();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {
-                    //options.LoginPath = "/api/account/login";
+                    options.LoginPath = "/api/account/login";
                     options.LogoutPath = "/api/account/logout";
                 });
 
