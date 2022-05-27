@@ -3,13 +3,25 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import TasksList from './components/TasksList';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import HomePage from './pages/Home';
+import ProductPage from './pages/Product';
+import Message from './components/Message';
+import OfferPage from './pages/Offer';
 
 function App() {
   return (
-    <div className="App">
-          <NavBar />
-          <TasksList />
-    </div>
+    <BrowserRouter>
+    <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="product">
+            <Route index element={<ProductPage />} />
+            <Route path=":number" element={<ProductPage />} />
+        </Route>
+        <Route path="offer" element={<OfferPage />} />
+        <Route path="message" element={<Message />} />
+    </Routes>
+</BrowserRouter>
   );
 }
 

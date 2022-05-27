@@ -27,7 +27,7 @@ export default class TodoBanner extends React.Component<TodoBannerProps, TodoBan
     render = () => 
         <div>
             <h4 className="bg-primary text-white text-center p-2">
-                Lista zadań użytkowania { this. props.name }
+                Lista zadań użytkownika { this. props.name } 
                 (Lista zadań: { this.props.tasks.filter(t => !t.done).length })
             </h4>
         </div>
