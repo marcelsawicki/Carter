@@ -2,40 +2,29 @@ import * as React from 'react'
 import * as reactDOM from 'react-dom'
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import TasksList from '../components/TasksList';
 
-export class MessageProps {
+export class CartProps {
    
 }
 
-export class MessageStates {
+export class CartStates {
    userName!: string;
 }
 
-export default class CartPage extends React.Component<MessageProps, MessageStates> {
+export default class CartPage extends React.Component<CartProps, CartStates> {
 
     /**
      *
      */
-    constructor(props: MessageProps, states: MessageStates) {
+    constructor(props: CartProps, states: CartStates) {
         super(props);
-        this.state = {
-            userName: "Adam"
-        }
-    }
-
-    changeStateData = () => {
-        this.setState({
-            userName: this.state.userName === "Henryk" ? "Fryderyk" : "Henryk"
-        })
-        
     }
 
     render() {
         return <div>
         <div className="App">
           <NavBar />
-          <TasksList />
+         <h4>Koszyk</h4>
         </div>
     </div>
     }

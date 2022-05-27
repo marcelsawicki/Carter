@@ -8,6 +8,9 @@ import HomePage from './pages/Home';
 import ProductPage from './pages/Product';
 import Message from './components/Message';
 import OfferPage from './pages/Offer';
+import CartPage from './pages/Cart';
+import RegisterPage from './pages/Register';
+import LoginPage from './pages/Login';
 
 function App() {
   return (
@@ -19,7 +22,9 @@ function App() {
             <Route path=":number" element={<ProductPage />} />
         </Route>
         <Route path="offer" element={<OfferPage />} />
-        <Route path="message" element={<Message />} />
+        <Route path="cart" element={<CartPage />} />
+        <Route path="register" element={<RegisterPage />} />
+        <Route path="login" element={<LoginPage />} />
     </Routes>
 </BrowserRouter>
   );

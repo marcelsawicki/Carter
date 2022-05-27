@@ -1,20 +1,20 @@
 import * as React from 'react'
 import NavBar from '../components/NavBar';
 
-export class OfferProps {
+export class RegisterProps {
    
 }
 
-export class OfferStates {
+export class RegisterStates {
 
 }
 
-export default class OfferPage extends React.Component<OfferProps, OfferStates> {
+export default class RegisterPage extends React.Component<RegisterProps, RegisterStates> {
 
     /**
      *
      */
-    constructor(props: OfferProps, states: OfferStates) {
+    constructor(props: RegisterProps, states: RegisterStates) {
         super(props);
     }
 
@@ -22,7 +22,7 @@ export default class OfferPage extends React.Component<OfferProps, OfferStates> 
         return <div>
         <div className="App">
           <NavBar />
-          <h4>Oferta</h4>
+          <h4>Rejestracja</h4>
         </div>
     </div>
     }
