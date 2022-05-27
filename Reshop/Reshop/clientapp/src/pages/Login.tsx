@@ -16,15 +16,23 @@ export default class LoginPage extends React.Component<LoginProps, LoginStates> 
      */
     constructor(props: LoginProps, states: LoginStates) {
         super(props);
-        this.state={login: "test"};
+        this.state={ login: "login" };
     }
 
     processLogin = () => {
-        this.setState({login:"logged in"})
+        if(this.state.login=="login")
+        {
+            this.setState({ login:"logout" })
+        }
+        else
+        {
+            this.setState({ login:"login" })
+        }
+        
     }
     
     processLogout = () => {
-        this.setState({login:"logged out"})
+        this.setState({ login:"login" })
     }
 
     render() {
@@ -37,8 +45,7 @@ export default class LoginPage extends React.Component<LoginProps, LoginStates> 
                         <div className="my-1">
                             Login: <input className="form-control"></input>
                             Password: <input className="form-control"></input>
-                            <button className="btn btn-primary mt-1" onClick={ this.processLogin }> Login </button>
-                            <button className="btn btn-primary mt-1" onClick={ this.processLogout }> Logout </button>
+                            <button className="btn btn-primary mt-1" onClick={ this.processLogin }> { this.state.login } </button>
                         </div>
                         <h4>Status { this.state.login }</h4>
                     </div>
