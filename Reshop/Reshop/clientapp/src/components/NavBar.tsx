@@ -16,7 +16,7 @@ export default class navBar extends React.Component<NavBarProps, {}> {
      */
     constructor(props: NavBarProps) {
         super(props);
-        this.state = { menuItems: [{ buttonName: "Test 1" }, { buttonName: "Test 2" }, { buttonName: "Test 3" }]};   
+        this.state = { menuItems: [{ buttonName: "Oferta" }, { buttonName: "Koszyk" }, { buttonName: "Zamówienie" }, { buttonName: "Rejestracja" }, { buttonName: "Logowanie" }]};   
     }
     render() {
         return <div>

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as reactDOM from 'react-dom'
+import TodoBanner from './TodoBanner';
 
 export class TasksListProps {
    
@@ -73,10 +74,7 @@ export default class TasksList extends React.Component<TasksListProps, TasksList
 
     render = () => 
         <div>
-                    <h4 className="bg-primary text-white text-center p-2">
-                        Lista zadań użytkowanika { this.state.userName }
-                        (Liczba zadań: { this.state.todoItems.filter(t=> !t.done).length })
-                    </h4>
+                    <TodoBanner name={this.state.userName } tasks={this.state.todoItems}></TodoBanner>
 
                     <div className="container-fluid">
                         <div className="my-1">
