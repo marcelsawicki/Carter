@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Banner from '../components/Banner';
 import NavBar from '../components/NavBar';
 
 export class LoginProps {
@@ -39,7 +40,7 @@ export default class LoginPage extends React.Component<LoginProps, LoginStates> 
         return <div>
         <div className="App">
           <NavBar />
-          <h4>Login</h4>
+          <Banner title="Logowanie"></Banner>
 
           <div className="container-fluid">
                         <div className="my-1">

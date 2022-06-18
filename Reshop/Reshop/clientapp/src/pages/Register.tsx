@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Banner from '../components/Banner';
 import NavBar from '../components/NavBar';
 
 export class RegisterProps {
@@ -22,7 +23,7 @@ export default class RegisterPage extends React.Component<RegisterProps, Registe
         return <div>
         <div className="App">
           <NavBar />
-          <h4>Rejestracja</h4>
+          <Banner title="Rejestracja"></Banner>
         </div>
     </div>
     }

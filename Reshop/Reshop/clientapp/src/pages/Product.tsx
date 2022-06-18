@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Banner from '../components/Banner';
 import NavBar from '../components/NavBar';
 
 export interface IAboutPageProps {}
@@ -19,6 +20,7 @@ const ProductPage: React.FunctionComponent<IAboutPageProps> = (props) => {
     return (
         <div>
             <NavBar />
+            <Banner title="Produkt"></Banner>
             <p>This is the product page.</p>
             <p>{message}</p>
         </div>

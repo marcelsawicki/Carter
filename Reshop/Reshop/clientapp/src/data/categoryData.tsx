@@ -1,0 +1,1 @@
+export const categoryData: string[] = ["Sporty wodne", "Piłka nożna", "Szachy", "Bieganie"];
