@@ -3,7 +3,7 @@ import './App.css';
 import React, { Component } from 'react';
 import { SportStoreDataStore } from './data/DataStore';
 import { Provider } from "react-redux";
-import { Routes, Route, BrowserRouter  } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router, Switch, Redirect  } from "react-router-dom";
 import { ShopConnector } from './shop/ShopConnector';
 
 export default class App extends Component {
@@ -11,11 +11,12 @@ export default class App extends Component {
     return <div>
       <h1>hello </h1>
       <Provider store={SportStoreDataStore} >
-      <BrowserRouter>
-        <Routes>
+      <Router>
+        <Switch>
           <Route path="/shop" component={ShopConnector}></Route>
-        </Routes>
-        </BrowserRouter>
+          <Redirect to="/shop" />
+        </Switch>
+        </Router>
       </Provider>
       </div>
     }
