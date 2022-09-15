@@ -9,7 +9,6 @@ import { ShopConnector } from './shop/ShopConnector';
 export default class App extends Component {
   render(){
     return <div>
-      <h1>hello </h1>
       <Provider store={SportStoreDataStore} >
       <Router>
         <Switch>

@@ -19,7 +19,11 @@ export const data = {
         },
         {
             id: 5, name: "P5", category: "Szachy",
-            description: "P1 (Szachy)", price: 7
+            description: "P5 (Szachy)", price: 7
+        },
+        {
+            id: 6, name: "P6", category: "Piłka nożna",
+            description: "P6 (Piłka nożna)", price: 7
         },
     ]
 }
