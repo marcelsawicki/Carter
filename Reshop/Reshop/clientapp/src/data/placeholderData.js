@@ -1,6 +1,6 @@
-import { IProduct } from "./IProduct";
-
-export const data: Array<IProduct> = [
+export const data = {
+    categories: ["Sporty wodne", "Piłka nożna", "Szachy", "Bieganie"],
+    products: [
         {
             id: 1, name: "P1", category: "Sporty wodne",
             description: "P1 (Sporty wodne)", price: 3
@@ -20,5 +20,10 @@ export const data: Array<IProduct> = [
         {
             id: 5, name: "P5", category: "Szachy",
             description: "P5 (Szachy)", price: 7
-        },                                
-    ];
+        },
+        {
+            id: 6, name: "P6", category: "Piłka nożna",
+            description: "P6 (Piłka nożna)", price: 7
+        },
+    ]
+}
