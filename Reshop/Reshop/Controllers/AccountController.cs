@@ -16,11 +16,11 @@ namespace Reshop.Controllers
     {
         [HttpGet]
         [Route("login")]
-        public async Task Login()
+        public async Task Login([FromQuery] string login, [FromQuery] string password)
         {
             var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, "name"),
+                    new Claim(ClaimTypes.Name, login),
                     new Claim("FullName", "fullName"),
                     new Claim(ClaimTypes.Role, "Administrator"),
                 };
