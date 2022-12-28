@@ -15,28 +15,29 @@ export class AboutComponent extends Component {
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Data</th>
+                <th scope="col">Wpis</th>
+                <th scope="col">Komentarz</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>2022-12-28</td>
+                <td>Koszyk</td>
+                <td>Szczegóły zawartosci koszyka</td>
                 </tr>
                 <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
+                <td>2022-12-29</td>
+                <td>Formularz zamówienia</td>
+                <td>Szczegóły</td>
                 </tr>
                 <tr>
                 <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                <td>2022-12-30</td>
+                <td>Walidacja formularza zamówienia</td>
+                <td>Walidacja formularza zamówienia</td>
                 </tr>
             </tbody>
             </table>
