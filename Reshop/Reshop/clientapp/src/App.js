@@ -13,6 +13,9 @@ export default class App extends Component {
       <Router>
         <Switch>
           <Route path="/shop" component={ShopConnector}></Route>
+          <Route exact path="/edu1" render={() => { window.location.href = "edu1.html" }} />
+          <Route exact path="/edu2" render={() => { window.location.href = "edu2.html" }} />
+          <Route exact path="/edu3" render={() => { window.location.href = "edu2.html" }} />
           <Redirect to="/shop" />
         </Switch>
         </Router>
