@@ -10,11 +10,11 @@ export const data = {
             description: "P2 (Sporty wodne)", price: 4
         },
         {
-            id: 3, name: "P3", category: "Bieganie",
+            id: 3, name: "P3", category: "Sporty wodne",
             description: "P3 (Bieganie)", price: 5
         },
         {
-            id: 4, name: "P4", category: "Szachy",
+            id: 4, name: "P4", category: "Piłka nożna",
             description: "P4 (Szachy)", price: 6
         },
         {
@@ -22,8 +22,12 @@ export const data = {
             description: "P5 (Szachy)", price: 7
         },
         {
-            id: 6, name: "P6", category: "Piłka nożna",
+            id: 6, name: "P6", category: "Bieganie",
             description: "P6 (Piłka nożna)", price: 7
+        },
+        {
+            id: 7, name: "P7", category: "Bieganie",
+            description: "P7 (Piłka nożna)", price: 7
         },
     ]
 }
