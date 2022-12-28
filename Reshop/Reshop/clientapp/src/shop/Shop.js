@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import { CategoryNavigation } from "./CategoryNavigation";
 import { ProductList } from "./ProductList";
 import { CartSummary } from "../data/CartSummary";
+import Link from "react-router-dom/Link";
 
 export class Shop extends Component {
     render() {
         return <div className="container-fluid">
             <div className="row">
-                <div className="col bg-dark text-white">
+                <div className="col bg-dark text-white p-2">
                     <div className="navbar-brand">Sklep SPORTSTORE</div>
+                    <Link to="/about"><button class="btn btn-sm">About</button></Link>
                     <CartSummary {...this.props } />
                 </div>
             </div>
