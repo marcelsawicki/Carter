@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export class CartSummary extends Component {
     getSummary = () => {
@@ -26,7 +28,7 @@ export class CartSummary extends Component {
             <small>
                 { this.getSummary() }
                 <Link className={this.getLinkClasses()} to="/shop/cart">
-                    <i className="fa fa-shopping-cart"></i>
+                <FontAwesomeIcon icon={faCartShopping} />
                 </Link>
             </small>
         </div>
