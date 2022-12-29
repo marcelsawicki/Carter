@@ -7,10 +7,11 @@ export class AboutComponent extends Component {
         return <div className="container-fluid">
             <div className="row">
                 <div className="col bg-dark text-white p-2">
-                    <Link to="/shop"><div className="navbar-brand">Sklep SPORTSTORE</div></Link>
+                    <div className="navbar-brand">Sklep SPORTSTORE</div>
                     <Link to="/about"><button class="btn btn-sm">About</button></Link>
                 </div>
             </div>
+            <Link className="btn btn-primary m-1" to="/shop">Kontynuuj zakupy</Link>
             <table class="table">
             <thead>
                 <tr>
