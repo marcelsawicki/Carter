@@ -15,17 +15,13 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="clientapp\src\components\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="clientapp\src\components\**" />
+    <EmbeddedResource Remove="clientapp\src\components\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="clientapp\src\components\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="clientapp\src\components\Message.tsx" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <TypeScriptCompile Include="clientapp\src\components\Message.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

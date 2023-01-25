@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Reshop.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,21 @@ namespace Reshop.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        private readonly IUserService _userService;
+        public AccountController(IUserService userService)
+        {
+            _userService = userService;
+        }
         [HttpGet]
         [Route("login")]
-        public async Task Login([FromQuery] string login, [FromQuery] string password)
+        public async Task<bool> Login([FromQuery] string login, [FromQuery] string password)
         {
+            var isValid = _userService.CheckPasswordSignIn(login, password);
+
+            if (!isValid)
+                return false;
+
+
             var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, login),
@@ -38,7 +50,7 @@ namespace Reshop.Controllers
                 // value set here overrides the ExpireTimeSpan option of 
                 // CookieAuthenticationOptions set with AddCookie.
 
-                //IsPersistent = true,
+                IsPersistent = true,
                 // Whether the authentication session is persisted across 
                 // multiple requests. When used with cookies, controls
                 // whether the cookie's lifetime is absolute (matching the
@@ -56,6 +68,7 @@ namespace Reshop.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(claimsIdentity),
                 authProperties);
+            return isValid;
         }
 
 

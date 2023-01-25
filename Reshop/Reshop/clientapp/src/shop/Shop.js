@@ -11,6 +11,7 @@ export class Shop extends Component {
                 <div className="col bg-dark text-white p-2">
                     <div className="navbar-brand">Sklep SPORTSTORE</div>
                     <Link to="/about"><button class="btn btn-sm">About</button></Link>
+                    <Link to="/loginprompt"><button class="btn btn-sm">Login</button></Link>
                     <CartSummary {...this.props } />
                 </div>
             </div>

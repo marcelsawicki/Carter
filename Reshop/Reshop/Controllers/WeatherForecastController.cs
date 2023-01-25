@@ -29,7 +29,7 @@ namespace Reshop.Controllers
 
         
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();

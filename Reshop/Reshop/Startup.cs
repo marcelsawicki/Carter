@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Reshop.Services;
 
 namespace Reshop
 {
@@ -23,6 +24,7 @@ namespace Reshop
         {
 
             services.AddControllersWithViews();
+            services.AddScoped<IUserService, UserService>();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {
                     options.LoginPath = "/api/account/login";
