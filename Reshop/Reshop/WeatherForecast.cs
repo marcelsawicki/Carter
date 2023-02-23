@@ -1,6 +1,6 @@
 using System;
 
-namespace Reshop
+namespace ReshopApp
 {
     public class WeatherForecast
     {

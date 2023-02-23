@@ -2,14 +2,13 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Reshop.Services;
-using System;
+using ReshopApp.Models;
+using ReshopApp.Services;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Reshop.Controllers
+namespace ReshopApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -20,11 +19,11 @@ namespace Reshop.Controllers
         {
             _userService = userService;
         }
-        [HttpGet]
+        [HttpPost]
         [Route("login")]
-        public async Task<bool> Login([FromQuery] string login, [FromQuery] string password)
+        public async Task<bool> Login([FromBody] UserCredentials userCredentials)
         {
-            var isValid = _userService.CheckPasswordSignIn(login, password);
+            var isValid = _userService.CheckPasswordSignIn(userCredentials.Login, userCredentials.Password);
 
             if (!isValid)
                 return false;
@@ -32,7 +31,7 @@ namespace Reshop.Controllers
 
             var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, login),
+                    new Claim(ClaimTypes.Name, userCredentials.Login),
                     new Claim("FullName", "fullName"),
                     new Claim(ClaimTypes.Role, "Administrator"),
                 };

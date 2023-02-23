@@ -1,4 +1,4 @@
-﻿namespace Reshop.Services
+﻿namespace ReshopApp.Services
 {
     public interface IUserService
     {

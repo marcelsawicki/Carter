@@ -2,16 +2,18 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Reshop.Services;
+using ReshopApp.Services;
 
-namespace Reshop
+namespace ReshopApp
 {
     public class Startup
     {
+        private const string CORSPolicy = "CORSPolicy";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -22,19 +24,29 @@ namespace Reshop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllersWithViews();
             services.AddScoped<IUserService, UserService>();
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {
-                    options.LoginPath = "/api/account/login";
-                    options.LogoutPath = "/api/account/logout";
+                    options.LoginPath = "/test/login";
+                    options.LogoutPath = "/test/logout";
                 });
 
-            // In production, the React files will be served from this directory
+            services.AddControllersWithViews();
+            // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "clientapp/build";
+                configuration.RootPath = "clientapp/dist";
+            });
+
+            services.AddCors(options =>
+            {
+                options
+                .AddPolicy(name: CORSPolicy,
+                policy =>
+                {
+                    policy.WithOrigins("https://datacrafter.pl");
+                });
             });
         }
 
@@ -51,14 +63,14 @@ namespace Reshop
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
-
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
             app.UseRouting();
-            app.UseAuthentication();
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -69,13 +81,19 @@ namespace Reshop
 
             app.UseSpa(spa =>
             {
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
+
                 spa.Options.SourcePath = "clientapp";
+                spa.ApplicationBuilder.UseSpaStaticFiles();
 
                 if (env.IsDevelopment())
                 {
-                    //spa.UseReactDevelopmentServer(npmScript: "start");
+                    //spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+
+            app.UseCors(CORSPolicy);
         }
     }
 }
