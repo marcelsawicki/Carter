@@ -19,4 +19,10 @@ export class LoginComponent {
       console.log(result);
     }, error => console.error(error));
   }
+
+  async OnRegister(login:string, password:string){
+    await this._http.post<any>(this._baseUrl + 'api/account/register', {login: login, password:password}).subscribe(result => {
+      console.log(result);
+    }, error => console.error(error));
+  }
 }
