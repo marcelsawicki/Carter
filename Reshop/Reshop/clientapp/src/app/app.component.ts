@@ -90,6 +90,7 @@ export class AppComponent {
 
   drawPawn22(canvasName:string)
   {
+    this.drawChessboard("canvasChessboard2");
     let canvas = document.getElementById(canvasName) as HTMLCanvasElement;
     let context = canvas.getContext("2d");
     let imageObj = new Image();
@@ -108,12 +109,93 @@ export class AppComponent {
     imageObj.src='assets/chess-arial-unicode-tiny-nobg.png';
   }
 
+  drawPawn222(canvasName:string)
+  {
+    this.drawChessboard("canvasChessboard2");
+    let canvas = document.getElementById(canvasName) as HTMLCanvasElement;
+    let context = canvas.getContext("2d");
+    let imageObj = new Image();
+
+
+      imageObj.onload = function()
+      {
+        if(canvas !=null && context !=null)
+        {
+          DrawPieces('Wa7','white', context, imageObj);
+          DrawPieces('Kh8','black', context, imageObj);
+          DrawPieces('Kh1','white', context, imageObj);
+        }
+      }
+      
+    imageObj.src='assets/chess-arial-unicode-tiny-nobg.png';
+  }
+
+  drawPawn223(canvasName:string)
+  {
+    this.drawChessboard("canvasChessboard2");
+    let canvas = document.getElementById(canvasName) as HTMLCanvasElement;
+    let context = canvas.getContext("2d");
+    let imageObj = new Image();
+
+
+      imageObj.onload = function()
+      {
+        if(canvas !=null && context !=null)
+        {
+          DrawPieces('Wa7','white', context, imageObj);
+          DrawPieces('Kg8','black', context, imageObj);
+          DrawPieces('Kh1','white', context, imageObj);
+        }
+      }
+      
+    imageObj.src='assets/chess-arial-unicode-tiny-nobg.png';
+  }
+
+  drawPawn224(canvasName:string)
+  {
+    this.drawChessboard("canvasChessboard2");
+    let canvas = document.getElementById(canvasName) as HTMLCanvasElement;
+    let context = canvas.getContext("2d");
+    let imageObj = new Image();
+
+
+      imageObj.onload = function()
+      {
+        if(canvas !=null && context !=null)
+        {
+          DrawPieces('Wa7','white', context, imageObj);
+          DrawPieces('Kg8','black', context, imageObj);
+          DrawPieces('Kg2','white', context, imageObj);
+        }
+      }
+      
+    imageObj.src='assets/chess-arial-unicode-tiny-nobg.png';
+  }
+
+  Render1()
+  {
+    this.drawPawn22("canvasChessboard2")
+  }
+
+  Render2()
+  {
+    this.drawPawn222("canvasChessboard2")
+  }
+
+  Render3()
+  {
+    this.drawPawn223("canvasChessboard2")
+  }
+
+  Render4()
+  {
+    this.drawPawn224("canvasChessboard2")
+  }
 
   ngOnInit() {
     this.drawChessboard("canvasChessboard");
     this.drawPawn("canvasChessboard")
     this.drawChessboard("canvasChessboard2");
-    this.drawPawn22("canvasChessboard2")
   }
 }
 
