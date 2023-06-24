@@ -196,6 +196,7 @@ export class AppComponent {
     this.drawChessboard("canvasChessboard");
     this.drawPawn("canvasChessboard")
     this.drawChessboard("canvasChessboard2");
+    this.drawPawn22("canvasChessboard2")
   }
 }
 
