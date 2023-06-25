@@ -326,14 +326,14 @@
 </div>
 
 <div class="content" role="main">
-  <router-outlet></router-outlet>
   <!-- Resources -->
-  <h2>Szachowy elementarz</h2>
-  <span>Diagramy wykonane na podstawie książki autorstwa Jose Raul Capablanca o tytule Szachowy elementarz.</span>
+  <h2>Sklep internetowy</h2>
+  <span>Jest to demonstracyjny sklep internetowy.</span>
+  <img src="assets/logo.png" />
   <div class="card-container">
     <a class="card" rel="noopener" href="/homes">
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      <span>Homes</span>
+      <span>Oferta</span>
       <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    
     </a>
     <a class="card" rel="noopener" href="/fetch-data">
@@ -353,22 +353,10 @@
     <span>Logout</span>
     <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    
   </a>
-
   </div>
-  <img src="assets/chess-arial-unicode.png" />
-  <span>Część 1</span>
-  <span>Rozdział 1. Zasady gry; bierki i ich ruchy; cel rozgrywki</span>
-  <h3> Diagram 1:</h3>
-  <canvas id="canvasChessboard" width="800px" height="500px"></canvas>
-  
-  <span>Rozdział 2. Jak nauczyć się grać w szachy i poczynić postępy w grze</span>
-  <span>1. Proste maty</span>
-  <h3> Diagram 22:</h3>
-  <canvas id="canvasChessboard2" width="800px" height="500px"></canvas>
-  <button (click)="Render1()" class="btn btn-primary">1</button>
-  <button (click)="Render2()" class="btn btn-primary">2</button>
-  <button (click)="Render3()" class="btn btn-primary">3</button>
-  <button (click)="Render4()" class="btn btn-primary">4</button>
+
+  <router-outlet></router-outlet>
+
   <!-- Footer -->
   <footer>
       Like Datacrafter?&nbsp;
