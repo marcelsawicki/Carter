@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
     password: new FormControl('')
   });
   
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string)
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router)
   {
     this._http = http;
     this._baseUrl = baseUrl;
@@ -27,6 +28,7 @@ export class LoginComponent {
 
     await this._http.post<any>(this._baseUrl + 'api/account/login', {login: this.applyForm.value.login , password: this.applyForm.value.password}).subscribe(result => {
       console.log(result);
+      this.router.navigate(['/logged'])
     }, error => console.error(error));
   }
 

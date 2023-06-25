@@ -7,13 +7,15 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
+import { LoggedComponent } from './logged/logged.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FetchDataComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    LoggedComponent
   ],
   imports: [
     BrowserModule,
