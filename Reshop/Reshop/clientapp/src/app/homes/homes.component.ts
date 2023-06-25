@@ -18,16 +18,6 @@ export class HomesComponent {
   housingLocationList: HousingLocation[] = [
     {
       id: 0,
-      name: 'Dom',
-      city: 'Chicago',
-      state: 'IL',
-      photo: '/assets/dom.jpg',
-      availableUnits: 4,
-      wifi: true,
-      laundry: true
-    },
-    {
-      id: 1,
       name: 'Kawa',
       city: 'Santa Monica',
       state: 'CA',
@@ -37,23 +27,13 @@ export class HomesComponent {
       laundry: true
     },
     {
-      id: 2,
+      id: 1,
       name: 'Gazeta',
       city: 'Juneau',
       state: 'AK',
       photo: '/assets/gazeta.jpg',
       availableUnits: 1,
       wifi: false,
-      laundry: false
-    },
-    {
-      id: 3,
-      name: 'Gra planszowa',
-      city: 'Chicago',
-      state: 'IL',
-      photo: '/assets/gra-planszowa.jpg',
-      availableUnits: 1,
-      wifi: true,
       laundry: false
     }
   ];
