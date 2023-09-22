@@ -18,15 +18,6 @@ export class HomesComponent {
   housingLocationList: HousingLocation[] = [
     {
       id: 1,
-      name: 'Skrzynia',
-      city: 'Juneau',
-      photo: '/assets/woodenbox.jpg',
-      availableUnits: 1,
-      price: 50,
-      currency: 'PLN'
-    },
-    {
-      id: 3,
       name: 'Poidło',
       city: 'Juneau',
       photo: '/assets/poidlo.jpg',
@@ -35,13 +26,22 @@ export class HomesComponent {
       currency: 'PLN'
     },
     {
-      id: 4,
+      id: 2,
       name: 'Karminik',
       city: 'Juneau',
       photo: '/assets/karmnik.jpg',
       availableUnits: 1,
       price: 100,
       currency: 'PLN'
-    }
+    },
+    {
+      id: 3,
+      name: 'Skrzynia',
+      city: 'Juneau',
+      photo: '/assets/woodenbox.jpg',
+      availableUnits: 1,
+      price: 50,
+      currency: 'PLN'
+    },
   ];
 }
