@@ -20,21 +20,37 @@ export class HomesComponent {
       id: 0,
       name: 'Kawa',
       city: 'Santa Monica',
-      state: 'CA',
       photo: '/assets/kawa.jpg',
       availableUnits: 0,
-      wifi: false,
-      laundry: true
+      price: 2,
+      currency: 'PLN'
     },
     {
       id: 1,
-      name: 'Gazeta',
+      name: 'Skrzynia',
       city: 'Juneau',
-      state: 'AK',
       photo: '/assets/gazeta.jpg',
       availableUnits: 1,
-      wifi: false,
-      laundry: false
+      price: 5,
+      currency: 'PLN'
+    },
+    {
+      id: 3,
+      name: 'Poidło',
+      city: 'Juneau',
+      photo: '/assets/gazeta.jpg',
+      availableUnits: 1,
+      price: 7,
+      currency: 'PLN'
+    },
+    {
+      id: 4,
+      name: 'Karminik',
+      city: 'Juneau',
+      photo: '/assets/gazeta.jpg',
+      availableUnits: 1,
+      price: 5,
+      currency: 'PLN'
     }
   ];
 }
