@@ -17,39 +17,30 @@ export class HomesComponent {
 
   housingLocationList: HousingLocation[] = [
     {
-      id: 0,
-      name: 'Kawa',
-      city: 'Santa Monica',
-      photo: '/assets/kawa.jpg',
-      availableUnits: 0,
-      price: 2,
-      currency: 'PLN'
-    },
-    {
       id: 1,
       name: 'Skrzynia',
       city: 'Juneau',
-      photo: '/assets/gazeta.jpg',
+      photo: '/assets/woodenbox.jpg',
       availableUnits: 1,
-      price: 5,
+      price: 50,
       currency: 'PLN'
     },
     {
       id: 3,
       name: 'Poidło',
       city: 'Juneau',
-      photo: '/assets/gazeta.jpg',
+      photo: '/assets/poidlo.jpg',
       availableUnits: 1,
-      price: 7,
+      price: 180,
       currency: 'PLN'
     },
     {
       id: 4,
       name: 'Karminik',
       city: 'Juneau',
-      photo: '/assets/gazeta.jpg',
+      photo: '/assets/karmnik.jpg',
       availableUnits: 1,
-      price: 5,
+      price: 100,
       currency: 'PLN'
     }
   ];
