@@ -18,7 +18,7 @@ export class HomesComponent {
   housingLocationList: HousingLocation[] = [
     {
       id: 1,
-      name: 'Poidło',
+      name: 'Kuweta',
       city: 'Juneau',
       photo: '/assets/poidlo.jpg',
       availableUnits: 1,
