@@ -1,5 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +10,28 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent {
   _http: HttpClient;
   _baseUrl: string;
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string)
+  applyForm = new FormGroup({
+    login: new FormControl(''),
+    password: new FormControl('')
+  });
+  
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router)
   {
     this._http = http;
     this._baseUrl = baseUrl;
   }
 
-  async OnSubmit(login:string, password:string){
-    await this._http.post<any>(this._baseUrl + 'api/account/login', {login: login, password:password}).subscribe(result => {
+  async SubmitApplication(){
+    
+    this.applyForm.value.login ?? '',
+    this.applyForm.value.password ?? '',
+
+    await this._http.post<any>(this._baseUrl + 'api/account/login', {login: this.applyForm.value.login , password: this.applyForm.value.password}).subscribe(result => {
       console.log(result);
+      this.router.navigate(['/logged'])
     }, error => console.error(error));
   }
+
 
   async OnRegister(login:string, password:string){
     await this._http.post<any>(this._baseUrl + 'api/account/register', {login: login, password:password}).subscribe(result => {

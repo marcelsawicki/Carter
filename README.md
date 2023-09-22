@@ -1,2 +1,2 @@
 # Reshop
-Sklep internetowy w technologii: .NET Core, React
+Sklep internetowy w technologii: .NET, Angular
