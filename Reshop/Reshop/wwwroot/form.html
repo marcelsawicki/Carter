@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <title>reCAPTCHA demo: Explicit render for multiple widgets</title>
+	<link
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
+    />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      var onloadCallback = function() {
+        // Renders the HTML element with id 'example1' as a reCAPTCHA widget.
+        // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+        widgetId1 = grecaptcha.render('example3', {
+          'sitekey' : '6LevsLMoAAAAAGtl-Jus5HFWQcsbZC-Z1HKrOfnF',
+          'callback' : verifyResponse,
+          'theme' : 'light'
+        });
+      };
+	  
+    var verifyResponse = function() {
+      alert('You have proven that you are human.');
+    }
+	  var verifyUserResponse = function() {
+		var response = grecaptcha.getResponse(widgetId1)
+		if(response === null || typeof response === "string" && response.length ===0)
+    {
+      alert('Captcha unverified.');
+      return false;
+    }
+    else
+    {
+      alert('Captcha verified.');
+      return true;
+    }
+  }
+    </script>
+  </head>
+  <body>
+    <!-- POSTs back to the page's URL upon submit with a g-recaptcha-response POST parameter. -->
+    <h1>Please fill out the form</h1>
+    <form action="sentform" method="GET" onsubmit="return verifyUserResponse()">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <label class="form-check-label" for="exampleRadios1">
+          Default radio
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">
+          Second default radio
+        </label>
+      </div>
+      <div class="form-check disabled">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+        <label class="form-check-label" for="exampleRadios3">
+          Disabled radio
+        </label>
+      </div>
+      <div id="example3"></div>
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+  </body>
+</html>

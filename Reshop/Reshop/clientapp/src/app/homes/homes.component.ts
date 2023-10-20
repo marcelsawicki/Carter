@@ -18,29 +18,20 @@ export class HomesComponent {
   housingLocationList: HousingLocation[] = [
     {
       id: 1,
-      name: 'Kuweta',
-      city: 'Juneau',
-      photo: '/assets/poidlo.jpg',
-      availableUnits: 1,
-      price: 180,
+      name: 'Karminik',
+      city: 'Wroclaw',
+      photo: '/assets/karmnik.jpg',
+      availableUnits: 120,
+      price: 150,
       currency: 'PLN'
     },
     {
       id: 2,
-      name: 'Karminik',
-      city: 'Juneau',
-      photo: '/assets/karmnik.jpg',
-      availableUnits: 1,
-      price: 100,
-      currency: 'PLN'
-    },
-    {
-      id: 3,
-      name: 'Skrzynia',
-      city: 'Juneau',
-      photo: '/assets/woodenbox.jpg',
-      availableUnits: 1,
-      price: 50,
+      name: 'Schody',
+      city: 'Wroclaw',
+      photo: '/assets/schody.jpg',
+      availableUnits: 4,
+      price: 550,
       currency: 'PLN'
     },
   ];
