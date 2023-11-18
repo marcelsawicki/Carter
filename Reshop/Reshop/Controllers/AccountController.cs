@@ -21,6 +21,7 @@ namespace ReshopApp.Controllers
         {
             _userService = userService;
         }
+
         [HttpPost]
         [Route("login")]
         public async Task<bool> Login([FromBody] UserCredentials userCredentials)
@@ -33,7 +34,7 @@ namespace ReshopApp.Controllers
                     return false;
 
 
-      
+
 
                 var authProperties = new AuthenticationProperties
                 {
@@ -54,10 +55,16 @@ namespace ReshopApp.Controllers
                 return isValid;
             }
             catch (Exception ex)
-            { 
-            var message = ex.Message;
+            {
+                var message = ex.Message;
                 return false;
             }
+        }
+        [HttpPost]
+        [Route("register")]
+        public async Task<bool> Register([FromBody] UserCredentials userCredentials)
+        {
+            return await Task.FromResult(false);
         }
 
         [HttpGet]

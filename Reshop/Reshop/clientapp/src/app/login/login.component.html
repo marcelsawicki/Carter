@@ -1,12 +1,14 @@
 <h2>Login</h2>
 <section class="listing-apply">
-    <h2 class="section-heading">Apply now to live here</h2>
     <form [formGroup]="applyForm" (submit)="SubmitApplication()">
-      <label for="login">Login</label>
-      <input id="login" type="text" formControlName="login">
-
-      <label for="password">Password</label>
-      <input id="password" type="text" formControlName="password">
+      <div>
+        <label for="login">Login</label>
+        <input id="login" type="text" formControlName="login">
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password">
+      </div>
       <button type="submit" class="primary">Login</button>
     </form>
   </section>
