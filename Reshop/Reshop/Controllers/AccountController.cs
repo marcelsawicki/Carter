@@ -7,6 +7,7 @@ using ReshopApp.Models;
 using ReshopApp.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -17,9 +18,11 @@ namespace ReshopApp.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IUserService _userService;
-        public AccountController(IUserService userService)
+        private readonly ApplicationDbContext _context;
+        public AccountController(IUserService userService, ApplicationDbContext context)
         {
             _userService = userService;
+            _context = context;
         }
 
         [HttpPost]
@@ -64,6 +67,7 @@ namespace ReshopApp.Controllers
         [Route("register")]
         public async Task<bool> Register([FromBody] UserCredentials userCredentials)
         {
+            var book = _context.Books.FirstOrDefault();
             return await Task.FromResult(false);
         }
 
