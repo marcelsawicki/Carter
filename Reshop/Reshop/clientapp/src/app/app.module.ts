@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { LoggedComponent } from './logged/logged.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LoggedComponent } from './logged/logged.component';
     FetchDataComponent,
     LoginComponent,
     LogoutComponent,
-    LoggedComponent
+    LoggedComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
