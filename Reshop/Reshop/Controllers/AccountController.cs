@@ -27,17 +27,24 @@ namespace ReshopApp.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<bool> Login([FromBody] UserCredentials userCredentials)
+        public async Task<bool> Login([FromBody] User userCredentials)
         {
+            bool isValid = false;
             try
             {
-                var isValid = _userService.CheckPasswordSignIn(userCredentials.Login, userCredentials.Password);
+                var checkUser = _context.Users.Where(x=> x.Password==userCredentials.Password && x.IsActive==true).FirstOrDefault();
+                if (checkUser!=null)
+                {
+                    if(checkUser.Password==userCredentials.Password) 
+                    {
+                        isValid = true;
+                    }
+                }
 
-                if (!isValid)
-                    return false;
+                //var isValid = _userService.CheckPasswordSignIn(userCredentials.Login, userCredentials.Password);
 
-
-
+                //if (!isValid)
+                //    return false;
 
                 var authProperties = new AuthenticationProperties
                 {
@@ -65,10 +72,12 @@ namespace ReshopApp.Controllers
         }
         [HttpPost]
         [Route("register")]
-        public async Task<bool> Register([FromBody] UserCredentials userCredentials)
+        public async Task<bool> Register([FromBody] User userCredentials)
         {
-            var book = _context.Books.FirstOrDefault();
-            return await Task.FromResult(false);
+            _context.Users.Add(userCredentials);
+            _context.SaveChanges();
+
+            return await Task.FromResult(true);
         }
 
         [HttpGet]

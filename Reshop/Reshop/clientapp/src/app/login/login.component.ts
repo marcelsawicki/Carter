@@ -30,11 +30,23 @@ export class LoginComponent {
       console.log(result);
       if(result)
       {
+        if(this.applyForm.value.login)
+        {
+          sessionStorage.setItem('userName',this.applyForm.value.login);
+        }
+        
+        var userName = document.getElementById("user-name");
+        
+        if(userName && this.applyForm.value.login)
+        {
+          userName.setAttribute("value", this.applyForm.value.login)
+        }
+
         this.router.navigate(['/logged'])
       }
       else
-      {
-        alert("Wrong password!")
+      { 
+        alert("Wrong password, login or account is not activated!")
         this.router.navigate(['/login'])
       }
       

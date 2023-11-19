@@ -14,7 +14,17 @@ import { HousingLocation } from '../hausing-location/housinglocation';
 })
 
 export class HomesComponent {
-
+  constructor()
+  {
+    let userNameValue = sessionStorage.getItem('userName');
+    var userName = document.getElementById("user-name");
+  
+    if(userName && userNameValue)
+    {
+      userName.setAttribute("value", userNameValue)
+    }
+  }
+  
   housingLocationList: HousingLocation[] = [
     {
       id: 0,
