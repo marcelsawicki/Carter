@@ -300,18 +300,29 @@
       visibility: hidden;
     }
   }
+
+  .website-title
+  {
+    padding: 10px;
+  }
+
+  .website-menu-button
+  {
+    padding: 10px;
+    margin: 5px;
+  }
+
 </style>
 
-<!-- Toolbar -->
 <div class="toolbar" role="banner">
-  <span>Sklep internetowy</span>
+  <span class="website-title">Sklep internetowy</span>
     <div class="spacer"></div>
   <form action="/user">
-      <input type="submit" id="user-name" value="Uzytkownik" />
+      <input type="submit" id="user-name" class="website-menu-button" value="Uzytkownik">
   </form>
 
   <form action="/cart">
-      <input type="submit" value="Koszyk" />
+      <input type="submit" class="website-menu-button" value="Koszyk">
   </form>
 
 
