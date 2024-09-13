@@ -15,37 +15,31 @@ export class LoginComponent {
     password: new FormControl('')
   });
   
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router)
-  {
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router) {
     this._http = http;
     this._baseUrl = baseUrl;
   }
 
-  async SubmitApplication(){
+  async SubmitApplication() {
     
     this.applyForm.value.login ?? '',
     this.applyForm.value.password ?? '',
 
     await this._http.post<any>(this._baseUrl + 'api/account/login', {login: this.applyForm.value.login , password: this.applyForm.value.password}).subscribe(result => {
       console.log(result);
-      if(result)
-      {
-        if(this.applyForm.value.login)
-        {
+      if(result) {
+        if(this.applyForm.value.login) {
           sessionStorage.setItem('userName',this.applyForm.value.login);
         }
         
         var userName = document.getElementById("user-name");
         
-        if(userName && this.applyForm.value.login)
-        {
+        if(userName && this.applyForm.value.login) {
           userName.setAttribute("value", this.applyForm.value.login)
         }
 
         this.router.navigate(['/logged'])
-      }
-      else
-      { 
+      } else { 
         alert("Wrong password, login or account is not activated!")
         this.router.navigate(['/login'])
       }
@@ -54,7 +48,7 @@ export class LoginComponent {
   }
 
 
-  async OnRegister(login:string, password:string){
+  async OnRegister(login:string, password:string) {
     await this._http.post<any>(this._baseUrl + 'api/account/register', {login: login, password:password}).subscribe(result => {
       console.log(result);
     }, error => console.error(error));
