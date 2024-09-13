@@ -14,13 +14,11 @@ import { HousingLocation } from '../hausing-location/housinglocation';
 })
 
 export class HomesComponent {
-  constructor()
-  {
+  constructor() {
     let userNameValue = sessionStorage.getItem('userName');
     var userName = document.getElementById("user-name");
   
-    if(userName && userNameValue)
-    {
+    if(userName && userNameValue) {
       userName.setAttribute("value", userNameValue)
     }
   }

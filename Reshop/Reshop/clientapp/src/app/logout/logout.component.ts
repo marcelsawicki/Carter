@@ -14,15 +14,13 @@ export class LogoutComponent {
     password: new FormControl('')
   });
   
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string)
-  {
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this._http = http;
     this._baseUrl = baseUrl;
     this.Logout();
   }
 
-  async Logout() 
-  {
+  async Logout() {
     await this._http.get(this._baseUrl + 'api/account/logout').subscribe(result => {
       console.log(result);
     }, error => 

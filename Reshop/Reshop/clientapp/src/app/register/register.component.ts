@@ -15,26 +15,21 @@ export class RegisterComponent {
     password: new FormControl('')
   });
   
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router)
-  {
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private router: Router) {
     this._http = http;
     this._baseUrl = baseUrl;
   }
 
   async OnRegister(){
-    
     this.applyForm.value.login ?? '',
     this.applyForm.value.password ?? '',
-
     await this._http.post<any>(this._baseUrl + 'api/account/register', {login: this.applyForm.value.login , password: this.applyForm.value.password}).subscribe(result => {
-      if(result)
-      {
-        this.router.navigate(['/registered'])
-      }
-      else
-      {
-        alert("Not registered!");
-      }
+      
+    if(result) {
+      this.router.navigate(['/registered'])
+    } else {
+      alert("Not registered!");
+    }
       
     }, error => console.error(error));
   }
