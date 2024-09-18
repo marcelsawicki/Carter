@@ -9,6 +9,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { LoggedComponent } from './logged/logged.component';
 import { RegisterComponent } from './register/register.component';
+import { QuestionsComponent } from './questions/questions.component';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UtilitiesComponent } from './utilities/utilities.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     LogoutComponent,
     LoggedComponent,
-    RegisterComponent
+    RegisterComponent,
+    QuestionsComponent,
+    HomeComponent,
+    PageNotFoundComponent,
+    UtilitiesComponent
   ],
   imports: [
     BrowserModule,
