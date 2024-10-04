@@ -12,7 +12,7 @@ export class AppComponent {
 
   title = 'clientapp';
     // Just enough here for the template to compile
-    pageTitle = 'Acme Product Management';
+    pageTitle = 'Datacrafter';
 
     cartCount = 0;
 }
