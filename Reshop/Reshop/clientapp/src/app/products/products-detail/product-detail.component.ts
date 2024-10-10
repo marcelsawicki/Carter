@@ -2,7 +2,7 @@ import { Component, inject, Input, OnChanges, OnDestroy, SimpleChanges } from '@
 
 import { NgIf, NgFor, CurrencyPipe } from '@angular/common';
 import { Product } from '../product';
-import { Subscription } from 'rxjs';
+import { catchError, EMPTY, Subscription } from 'rxjs';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ProductService } from '../product.service';
     standalone: true,
     imports: [NgIf, NgFor, CurrencyPipe]
 })
-export class ProductDetailComponent implements OnChanges, OnDestroy {
+export class ProductDetailComponent {
 
   @Input() productId: number = 0;
   errorMessage = '';
@@ -26,13 +26,20 @@ export class ProductDetailComponent implements OnChanges, OnDestroy {
   pageTitle = this.product ? `Product Detail for: ${this.product.productName}` : 'Product Detail';
 
   addToCart(product: Product) {
-    
+
   }
 
  ngOnChanges(changes: SimpleChanges): void {
     const id = changes['productId'].currentValue;
     if (id) {
-      this.sub = this.productService.getProduct(id).subscribe(
+      this.sub = this.productService.getProduct(id)
+      .pipe(
+        catchError(err => {
+          this.errorMessage = err;
+          return EMPTY;
+        })
+      )
+      .subscribe(
         product => this.product = product
       );
     }
