@@ -11,8 +11,6 @@ import { ProductService } from '../product.service';
   imports: [AsyncPipe, NgIf, NgFor, NgClass, ProductDetailComponent]
 })
 export class ProductListComponent {
-
-  // Just enough here for the template to compile
   pageTitle = 'Products';
   errorMessage = '';
 
@@ -28,10 +26,10 @@ export class ProductListComponent {
     );
 
   // Selected product id to highlight the entry
-  selectedProductId: number = 0;
+  readonly selectedProductId$ = this.productService.productSelected$;
 
   onSelected(productId: number): void {
-    this.selectedProductId = productId;
+    this.productService.productSelected(productId);
   }
 
 }
