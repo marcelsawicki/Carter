@@ -21,8 +21,11 @@ const routes: Routes = [
   path: 'cart',
   loadComponent: () => import('./cart/cart-shell/cart-shell.component').then(c => c.CartShellComponent)
 },
+{
+  path: 'penalty-shooter',
+  loadComponent: () => import('./penalty-shooter/penalty-shooter.component').then(c => c.PenaltyShooterComponent)
+},
 { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-{ path: '**', component: PageNotFoundComponent },
 { path: 'fetch-data', component: FetchDataComponent },
 { path: 'login', component: LoginComponent },
 { path: 'register', component: RegisterComponent },
@@ -30,7 +33,8 @@ const routes: Routes = [
 { path: 'logout', component: LogoutComponent },
 { path: 'logged', component: LoggedComponent },
 { path: 'questions', component: QuestionsComponent },
-{ path: 'homes', component: HomesComponent }];
+{ path: 'homes', component: HomesComponent },
+{ path: '**', component: PageNotFoundComponent },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,16 +1,17 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
+  styleUrl: 'login.component.css',
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
   _http: HttpClient;
   _baseUrl: string;
-  applyForm = new FormGroup({
+  loginForm = new FormGroup({
     login: new FormControl(''),
     password: new FormControl('')
   });
@@ -20,22 +21,22 @@ export class LoginComponent {
     this._baseUrl = baseUrl;
   }
 
-  async SubmitApplication() {
+  async onSubmit() {
     
-    this.applyForm.value.login ?? '',
-    this.applyForm.value.password ?? '',
+    this.loginForm.value.login ?? '';
+    this.loginForm.value.password ?? '';
 
-    await this._http.post<any>(this._baseUrl + 'api/account/login', {login: this.applyForm.value.login , password: this.applyForm.value.password}).subscribe(result => {
+    await this._http.post<any>(this._baseUrl + 'api/account/login', {login: this.loginForm.value.login , password: this.loginForm.value.password}).subscribe(result => {
       console.log(result);
       if(result) {
-        if(this.applyForm.value.login) {
-          sessionStorage.setItem('userName',this.applyForm.value.login);
+        if(this.loginForm.value.login) {
+          sessionStorage.setItem('userName',this.loginForm.value.login);
         }
         
         var userName = document.getElementById("user-name");
         
-        if(userName && this.applyForm.value.login) {
-          userName.setAttribute("value", this.applyForm.value.login)
+        if(userName && this.loginForm.value.login) {
+          userName.setAttribute("value", this.loginForm.value.login)
         }
 
         this.router.navigate(['/logged'])

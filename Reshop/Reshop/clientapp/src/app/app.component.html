@@ -18,6 +18,24 @@
          <span class="badge bg-primary">{{cartCount() > 0 ? cartCount() : ''}}</span>
         </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link"
+         [routerLink]="['/penalty-shooter']"
+         routerLinkActive="active">Penalty shooter
+        </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"
+         [routerLink]="['/login']"
+         routerLinkActive="active">Login
+        </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"
+         [routerLink]="['/register']"
+         routerLinkActive="active">Register
+        </a>
+    </li>
   </ul>
 </nav>
 

@@ -1,0 +1,30 @@
+<canvas #canvasEl width="640" height="480" (click)="open()"></canvas>
+<section class="listing-apply">
+    <form [formGroup]="penaltyShootForm" (ngSubmit)="onSubmit()">
+      <table>
+        <tr>
+          <div>
+            <td>
+                <div>
+                    <input type="range" id="volume" name="volume" min="0" max="90" formControlName="projectionAngle"/>
+                    <label for="volume">projectionAngle</label>
+                  </div>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <div>
+            <input type="range" id="volume" name="volume" min="20" max="180" formControlName="projectionInitialVelocity"/>
+            <label for="volume">projectionInitialVelocity</label>
+          </div>
+        </tr>
+        <tr>
+            <div>
+                <input type="range" id="volume" name="volume" min="-50" max="50" formControlName="horizontalAngle"/>
+                <label for="volume">horizontalAngle</label>
+              </div>
+          </tr>
+    </table>
+    <button (click)="onSubmit()">Shoot</button>
+    </form>
+</section>

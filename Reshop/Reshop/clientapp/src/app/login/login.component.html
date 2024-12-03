@@ -1,14 +1,31 @@
 <h2>Login</h2>
 <section class="listing-apply">
-    <form [formGroup]="applyForm" (submit)="SubmitApplication()">
-      <div>
-        <label for="login">Login</label>
-        <input id="login" type="text" formControlName="login">
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input id="password" type="password" formControlName="password">
-      </div>
-      <button type="submit" class="primary">Login</button>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <table>
+        <tr>
+          <div>
+            <td>
+              <label for="login">Login</label>
+            </td>
+            <td>
+              <input id="login" type="text" formControlName="login">
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <div>
+            <td>
+              <label for="password">Password</label>
+            </td>
+            <td>
+              <input id="password" type="password" formControlName="password">
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <button type="submit" class="primary">Login</button>
+        </tr>
+    </table>
+      
     </form>
-  </section>
+</section>
