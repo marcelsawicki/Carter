@@ -34,7 +34,7 @@ const routes: Routes = [
 { path: 'logged', component: LoggedComponent },
 { path: 'questions', component: QuestionsComponent },
 { path: 'homes', component: HomesComponent },
-{ path: '**', component: PageNotFoundComponent },];
+{ path: '**', redirectTo: '' },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -86,5 +86,12 @@ namespace ReshopApp.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         }
+
+        [HttpGet]
+        [Route("health")]
+        public async Task<string> Healthcheck()
+        {
+            return "okdddd";
+        }
     }
 }

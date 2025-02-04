@@ -1,0 +1,17 @@
+<div *ngIf="currentQuestion">
+
+    <table clas="table-container">
+        <tr>
+            <h2>Symbol: {{ currentQuestion.symbol }}</h2> 
+        </tr>
+        <tr>
+            <div *ngFor="let option of currentQuestion.options">
+                <td>
+                    <button class="btn btn-success" (click)="checkAnswer(option)">{{ option }}</button>
+                </td>
+            </div>
+    </tr>
+    <tr>Ilosc zdobytych punktow: {{ this.scoreSignal ()}} / {{ this.totalQuestions }}</tr>
+    <tr>Pytanie nr: {{ questionNoSignal() }} z {{ this.totalQuestions }} </tr>
+    </table>
+  </div>

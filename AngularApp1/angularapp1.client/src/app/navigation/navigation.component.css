@@ -1,0 +1,10 @@
+.menu {
+    margin: 15px;
+}
+
+.table-container {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    width: fit-content; /* Dopasowanie szerokości tabeli do zawartości */
+  }

@@ -1,0 +1,40 @@
+<h1 class="text-primary">Pytanie numer: {{ this.id() }}</h1>
+<button class="btn btn-warning" (click)="navigateback()">Poprzednie pytanie </button>
+<button class="btn btn-warning" (click)="navigate()">Nastepne pytanie </button>
+@if(this.question; as question){
+
+    <h2>{{ question.question}}</h2>
+    <p>
+    @if(question.answera!=null){
+        <div>
+            <button class="btn btn-success" (click)="checkAnswer('A')"><h2>A: {{ question.answera}}</h2></button>
+            <button class="btn btn-success" (click)="checkAnswer('B')"><h2>B: {{ question.answerb}}</h2></button>
+            <button class="btn btn-success" (click)="checkAnswer('C')"><h2>{{ question.answerc}}</h2></button>
+        </div>
+    } @else {
+        <div>
+            <button class="btn btn-success" (click)="checkAnswer('Tak')"><h2>Tak</h2></button>
+            <button class="btn btn-success" (click)="checkAnswer('Nie')"><h2>Nie</h2></button>
+        </div>
+        
+    }
+
+    <!-- Odpowiedz {{ question.answer}} -->
+    
+</p>
+    @if(question.media!=null){
+        <!-- <p>{{ question.media}}</p> -->
+        @if(question.media.includes('jpg')){
+            <img [src]="question.media" class="responsive-img"/>
+        } @else {
+            <video [src]="question.media" controls width=80%></video>
+        }
+    }   
+}
+
+<div>
+    <h2>Czy odpowiedz była poprawna?: {{ this.feedback() }}</h2>
+</div>
+<div>
+    Poprawnych odpowiedzi: {{ this.correctAnswers( ) }}/{{ this.allAnswers() }}
+</div>

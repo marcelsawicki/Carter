@@ -1,0 +1,10 @@
+button {
+    padding: 5px;
+    margin: 5px;
+}
+
+.responsive-img {
+    width: 100%; /* Dopasowanie szerokości do ekranu */
+    height: auto; /* Zachowanie proporcji obrazka */
+    display: block; /* Usunięcie domyślnych odstępów (opcjonalne) */
+  }

@@ -25,8 +25,9 @@ export class LoginComponent {
     
     this.loginForm.value.login ?? '';
     this.loginForm.value.password ?? '';
+    const data = { "login": "this.loginForm.value.login" , "Password": "this.loginForm.value.password"};
 
-    await this._http.post<any>(this._baseUrl + 'api/account/login', {login: this.loginForm.value.login , password: this.loginForm.value.password}).subscribe(result => {
+    await this._http.post<any>('https://localhost:5001/api/account/login', data).subscribe(result => {
       console.log(result);
       if(result) {
         if(this.loginForm.value.login) {
@@ -45,7 +46,11 @@ export class LoginComponent {
         this.router.navigate(['/login'])
       }
       
-    }, error => console.error(error));
+    }, error => {
+      console.error(error); 
+      return;
+    })
+    
   }
 
 
