@@ -7,7 +7,7 @@ import { Question } from '../models/question.model';
   providedIn: 'root'
 })
 export class BackendService {
-  private apiUrl = 'https://localhost:7019/api/questions'; // Adres API
+  private apiUrl = '/api/questions'; // Adres API
 
   constructor(private http: HttpClient) { }
 
