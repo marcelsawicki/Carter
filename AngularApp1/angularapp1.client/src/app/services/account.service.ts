@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
@@ -11,9 +11,9 @@ export class AccountService {
 
   constructor(private http: HttpClient) { }
   
-  login(user: User): Observable<User> {
+  login(user: User): Observable<HttpResponse<any>> {
     const url = `${this.apiUrl}/login`; 
-    return this.http.post<User>(url, user); // Poprawiona ścieżka
+    return this.http.post<User>(url, user, { withCredentials: true, observe: 'response' }); // Poprawiona ścieżka
   }
 
   logout(): Observable<void> { // Nie wymaga parametru user

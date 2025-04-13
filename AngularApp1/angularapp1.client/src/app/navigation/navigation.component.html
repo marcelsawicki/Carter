@@ -1,27 +1,35 @@
-<table class="table-container">
-    <tr>
-        <td>            
-            <p *ngIf="login(); else noLogin">Zalogowano jako: {{ login() }}</p>
-            <ng-template #noLogin><p>Nie zalogowano</p></ng-template>
-        </td>
-          
-    </tr>
-    <tr>
-        <td>
-            <p *ngIf="!login()">
-            <a class="menu" href="/login/">Zaloguj</a>
-            </p>
-        </td>
-        <td>
-            <p *ngIf="login()">
-                <a href="" (click)="logout()">Wyloguj</a>
-            </p>
-        </td>
-        <td><a class="menu" href="/register/">Register</a></td>
-    </tr>
-</table>
-<h1 id="tableLabel">Prawo jazdy kategoria B</h1>
-<h1><a href="/learning/1">Rozpocznij nauke</a></h1>
+
+<div class="container">
+
+    <table class="table-container">
+        <tr>
+            <td>            
+                <p *ngIf="login(); else noLogin">Zalogowano jako: {{ login() }}</p>
+                <ng-template #noLogin><p>Nie zalogowano</p></ng-template>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p *ngIf="!login()">
+                <a class="menu" href="/login/">Zaloguj</a>
+                </p>
+            </td>
+            <td>
+                <p *ngIf="login()">
+                    <a href="" (click)="logout()">Wyloguj</a>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td><a class="menu" href="/register/">Register</a></td>
+        </tr>
+        <tr>
+            <app-authenticator></app-authenticator>
+        </tr>
+    </table>
+    <h1 id="tableLabel">Prawo jazdy kategoria B</h1>
+    <h1><a href="/learning/1">Rozpocznij nauke</a></h1>
+</div>
 <hr>
 
 

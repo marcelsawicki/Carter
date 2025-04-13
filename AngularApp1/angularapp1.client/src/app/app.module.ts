@@ -14,6 +14,8 @@ import { SessionService } from './services/session.service';
 import { ChemistryComponent } from './chemistry/chemistry.component';
 import { ElementsService } from './services/elements.service';
 import { AccountService } from './services/account.service';
+import { AuthenticatorComponent } from './authenticator/authenticator.component';
+import { LoggedComponent } from './logged/logged.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { AccountService } from './services/account.service';
     RegisterComponent,
     NavigationComponent,
     ChemistryComponent,
+    AuthenticatorComponent,
+    LoggedComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,

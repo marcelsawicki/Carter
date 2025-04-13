@@ -2,3 +2,44 @@ td {
     width: 25%;
     padding: 2px;
 }
+
+/* Stylizacja tabeli */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Zapewnia, że linie graniczne będą się łączyć */
+}
+
+/* Linia o szerokości 1px dla komórek tabeli */
+table, th, td {
+    border: 1px solid #000; /* Czarne linie */
+}
+
+/* Wyrównanie tekstu w komórkach */
+td, th {
+    padding: 8px; /* Dodanie odstępu wewnątrz komórek */
+    text-align: left; /* Wyrównanie tekstu do lewej */
+}
+
+/* Wyrównanie formularza */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 8px; /* Dodanie odstępu wewnętrznego */
+    box-sizing: border-box; /* Umożliwia prawidłowe obliczenie szerokości z uwzględnieniem paddingu */
+}
+
+/* Stylizacja przycisku */
+button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+    background-color: #28a745; /* Kolor przycisku */
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+button:hover {
+    background-color: #218838; /* Zmiana koloru przycisku na ciemniejszy przy najechaniu */
+}

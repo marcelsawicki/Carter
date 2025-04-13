@@ -5,6 +5,7 @@ import { LearningComponent } from './learning/learning.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ChemistryComponent } from './chemistry/chemistry.component';
+import { LoggedComponent } from './logged/logged.component';
 
 const routes: Routes = [
   { path: 'welcome', component: AppComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'learning/:id', component: LearningComponent },
   { path: 'chemistry', component: ChemistryComponent },
   { path: 'login', component: LoginComponent }, 
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'logged', component: LoggedComponent }
 ];
 
 @NgModule({

@@ -1,31 +1,28 @@
 <h2>Login</h2>
 <section class="listing-apply">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <table>
-        <tr>
-          <div>
-            <td>
-              <label for="login">Login</label>
-            </td>
-            <td>
-              <input id="login" type="text" formControlName="login">
-            </td>
-          </div>
-        </tr>
-        <tr>
-          <div>
-            <td>
-              <label for="password">Password</label>
-            </td>
-            <td>
-              <input id="password" type="password" formControlName="password">
-            </td>
-          </div>
-        </tr>
-        <tr>
-          <button type="submit" class="btn btn-success">Login</button>
-        </tr>
-    </table>
-      
+        <table>
+            <tr>
+                <td>
+                    <label for="login">Login</label>
+                </td>
+                <td>
+                    <input id="login" type="text" formControlName="login">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Password</label>
+                </td>
+                <td>
+                    <input id="password" type="password" formControlName="password">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" class="btn btn-success">Login</button>
+                </td>
+            </tr>
+        </table>
     </form>
 </section>

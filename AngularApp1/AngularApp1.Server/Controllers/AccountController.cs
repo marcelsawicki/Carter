@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using AngularApp1.Server.Models;
+using Microsoft.AspNetCore.Authorization;
+using AngularApp1.Server.Repository;
 
 namespace AngularApp1.Server.Controllers
 {
@@ -11,21 +13,32 @@ namespace AngularApp1.Server.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        private readonly UserRepository userRepository;
+        public AccountController(UserRepository userRepository)
+        {
+            this.userRepository = userRepository;
+        }
+
         [HttpGet("login")]
         public async Task<ActionResult<string>> Log()
         {
             return Ok("prosze sie zalogowac");
         }
 
-            [HttpPost]
+        [HttpPost]
         [Route("login")]
-        public async Task<bool> Login([FromBody] User userCredentials)
+        public async Task<IActionResult> Login([FromBody] User userCredentials)
         {
             bool isValid = false;
             try
             {
-                if (userCredentials.Login == "user" && userCredentials.Password == "password")
-                {
+
+                var user = userRepository.GetByUsernameAndPassword(userCredentials.Login, userCredentials.Password);
+                if (user == null)
+                    return Unauthorized();
+
+                //if (userCredentials.Login == "user" && userCredentials.Password == "password")
+                //{
                     isValid = true;
 
 
@@ -35,27 +48,30 @@ namespace AngularApp1.Server.Controllers
                     };
 
                     var claims = new List<Claim> {
+                    new Claim("sub", "1"),
+                    new Claim("name", user.Login),
                     new Claim(ClaimTypes.NameIdentifier, "testUserId"),
                     new Claim(ClaimTypes.Name, "user"),
-                    //new Claim(ClaimTypes.Role, "Admin"),
                     new Claim(ClaimTypes.Role, "User")  
                     };
 
-                    var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    var userPrincipal = new ClaimsPrincipal(userIdentity);
+                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(identity);
 
-                    await HttpContext.SignInAsync(
-                        CookieAuthenticationDefaults.AuthenticationScheme,
-                        userPrincipal,
-                        authProperties);
-                }
+                    //await HttpContext.SignInAsync(
+                    //    CookieAuthenticationDefaults.AuthenticationScheme,
+                    //    principal,
+                    //    authProperties);
 
-                return isValid;
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                        principal);
+                    return Ok(new { success = true, login = userCredentials.Login });
+                return Unauthorized("Invalid login or password");
             }
             catch (Exception ex)
             {
                 var message = ex.Message;
-                return false;
+                return StatusCode(500, $"Internal server error: {message}");
             }
         }
 
@@ -66,6 +82,20 @@ namespace AngularApp1.Server.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         }
 
+        [Authorize]
+        [HttpGet("getuserclaims")]
+        public IEnumerable<UserClaim> GetUserClaims()
+        {
+            var claims = new List<UserClaim>();
+            foreach (var claim in User.Claims)
+            {
+                claims.Add(new UserClaim() { Type = claim.Type, Value = claim.Value });
+            }
+
+            return claims;
+        }
+
+        [Authorize]
         [HttpGet("whoami")]
         public IActionResult WhoAmI()
         {

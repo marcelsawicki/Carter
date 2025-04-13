@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SessionService } from '../services/session.service';
 import { AccountService } from '../services/account.service';
 import { User } from '../models/user.model';
@@ -14,7 +15,7 @@ export class LoginComponent {
     login: new FormControl(''),
     password: new FormControl('')
   });
-  constructor(private sessionService: SessionService, private accountService: AccountService) {}
+  constructor(private sessionService: SessionService, private accountService: AccountService, private router: Router) {}
 
     loginAs(): void {
       const username = this.loginForm.value.login ?? '';
@@ -23,8 +24,13 @@ export class LoginComponent {
 
       const user: User = { login: username, password: password };      
       this.accountService.login(user).subscribe({
-        next: (loggedInUser) => {
-          this.sessionService.setLogin(loggedInUser.login || '');
+        next: (response) => {
+          if (response.status === 200) {
+            // Sukces — np. użytkownik zalogowany
+            this.sessionService.setLogin(username);
+          }
+          //this.sessionService.setLogin(loggedInUser.login || '');
+          this.router.navigate(['/logged']);
         },
         error: (err) => {
           console.error('Błąd logowania:', err);

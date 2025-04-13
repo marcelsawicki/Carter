@@ -6,6 +6,7 @@ using AngularApp1.Server.Controllers;
 using AngularApp1.Server.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using AngularApp1.Server.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,15 +18,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddSingleton<UserRepository>();
 builder.Services.AddAuthentication(options => {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 }).AddCookie(options =>
 {
-    options.LoginPath = "/api/account/login";  // Œcie¿ka do logowania
-    options.LogoutPath = "/api/acount/logout"; // Œcie¿ka do wylogowania
-    options.AccessDeniedPath = "/api/account/access-denied"; // Gdzie przekierowaæ po braku dostêpu
+    options.Cookie.Name = "spa-app";
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.Path = "/";
+    options.Cookie.SameSite = SameSiteMode.Lax;
+
+    options.Events.OnRedirectToLogin = (context) =>
+    {
+        context.Response.StatusCode =
+            StatusCodes.Status401Unauthorized;
+        return Task.CompletedTask;
+    };
 });
 
 builder.Services.AddCors(options =>
@@ -34,7 +44,11 @@ builder.Services.AddCors(options =>
     .AddPolicy(name: "CORSPolicy",
     policy =>
     {
-        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); ;
+        policy
+            .WithOrigins("https://datacrafter.pl/")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials();
     });
 });
 var app = builder.Build();

@@ -1,40 +1,67 @@
-<h2>Login</h2>
-<section class="listing-apply">
-  <h2 class="section-heading">Register form</h2>
-  <form [formGroup]="applyForm" (submit)="OnRegister()">
-    <table style="border-collapse: collapse">
-      <tr>
-        <td style="padding: 8px;text-align: right;">
-          <label for="login">Login</label>
-        </td>
-        <td style="padding: 8px;">
-          <input id="login" type="text" formControlName="login">
-        </td>
-      </tr>
-      <tr>
-        <td style="padding: 8px;text-align: right;">
-          <label for="password">Password</label>
-        </td>
-        <td style="padding: 8px;">
-          <input id="password" type="password" formControlName="password">
-        </td>
-      </tr>
-      <tr>
-        <td style="padding: 8px;text-align: right;">
-          <label for="confirmpassword">Confirm password</label>
-        </td>
-        <td style="padding: 8px;">
-          <input id="confirmpassword" type="password" formControlName="password">
-        </td>
-      </tr>
-      <tr>
-        <td>
-        </td>
-        <td style="padding: 8px;">
-          <button type="submit" class="btn btn-success">Register</button>
-        </td>
-      </tr>
-    </table>
-    
-  </form>
-</section>
+<h2>Register</h2>
+{{ sendRegistrationEmail() }}
+<div *ngIf="!sendRegistrationEmail()">
+  <section class="listing-apply">
+    <h2 class="section-heading">Register form</h2>
+    <form [formGroup]="applyForm" (ngSubmit)="OnRegister()">
+      <table style="border-collapse: collapse">
+        <tr>
+          <td style="padding: 8px;text-align: right;">
+            <label for="login">Login</label>
+          </td>
+          <td style="padding: 8px;">
+            <input id="login" type="text" formControlName="login">
+            <div *ngIf="applyForm.get('login')?.touched && applyForm.get('login')?.invalid">
+              <small class="error-text" *ngIf="applyForm.get('login')?.hasError('required')">Login jest wymagany.</small>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px;text-align: right;">
+            <label for="email">Email</label>
+          </td>
+          <td style="padding: 8px;">
+            <input id="email" type="text" formControlName="email">
+            <div *ngIf="applyForm.get('email')?.touched && applyForm.get('email')?.invalid">
+              <small class="error-text" *ngIf="applyForm.get('email')?.hasError('required')">Email jest wymagany.</small>
+              <small class="error-text" *ngIf="applyForm.get('email')?.hasError('email')">Podaj prawidłowy adres e-mail.</small>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px;text-align: right;">
+            <label for="password">Password</label>
+          </td>
+          <td style="padding: 8px;">
+            <input id="password" type="password" formControlName="password">
+            <div *ngIf="applyForm.get('password')?.touched && applyForm.get('password')?.invalid">
+              <small class="error-text" *ngIf="applyForm.get('password')?.hasError('required')">Hasło jest wymagane.</small>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding: 8px;text-align: right;">
+            <label for="confirmpassword">Confirm password</label>
+          </td>
+          <td style="padding: 8px;">
+            <input id="confirmpassword" type="password" formControlName="confirmpassword">
+            <div *ngIf="applyForm.get('confirmpassword')?.touched && applyForm.get('confirmpassword')?.invalid">
+              <small class="error-text" *ngIf="applyForm.get('confirmpassword')?.hasError('required')">Potwierdzenie hasła jest wymagane.</small>
+              <small class="error-text" *ngIf="applyForm.get('confirmpassword')?.hasError('passwordMismatch')">Hasła muszą być takie same.</small>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td style="padding: 8px;">
+            <button type="submit" class="btn btn-success" [disabled]="!applyForm.valid">Register</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </section>
+</div>
+<div *ngIf="sendRegistrationEmail()">
+  <div> Przesłaliśmy na podany e-mail {{ applyForm.get('email')?.value }} link aktywacyjny.</div>
+</div>
