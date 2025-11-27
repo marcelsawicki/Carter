@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using AngularApp1.Server.Models;
+using AngularApp1.Server.Repository;
+using Azure.Core;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using AngularApp1.Server.Models;
-using Microsoft.AspNetCore.Authorization;
-using AngularApp1.Server.Repository;
+using System.Text;
 
 namespace AngularApp1.Server.Controllers
 {
@@ -37,36 +41,34 @@ namespace AngularApp1.Server.Controllers
                 if (user == null)
                     return Unauthorized();
 
-                //if (userCredentials.Login == "user" && userCredentials.Password == "password")
-                //{
-                    isValid = true;
+                var claims = new[]
+                {
+                    new Claim(ClaimTypes.Name, user.Login)
+                };
+                
+                var keyBytes = Convert.FromBase64String("4fJ2v8RzqL7y1nP0X5s8UvQ2tZ6bH3pFqYw9dGm1RkE=");
+                var key = new SymmetricSecurityKey(keyBytes);
+                var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+                var token = new JwtSecurityToken(
+                    issuer: "your-app",
+                    audience: "your-app",
+                    claims: claims,
+                    expires: DateTime.UtcNow.AddHours(1),
+                    signingCredentials: creds
+                );
 
-                    var authProperties = new AuthenticationProperties
-                    {
-                        IsPersistent = false,
-                    };
+                string jwt = new JwtSecurityTokenHandler().WriteToken(token);
 
-                    var claims = new List<Claim> {
-                    new Claim("sub", "1"),
-                    new Claim("name", user.Login),
-                    new Claim(ClaimTypes.NameIdentifier, "testUserId"),
-                    new Claim(ClaimTypes.Name, "user"),
-                    new Claim(ClaimTypes.Role, "User")  
-                    };
+                Response.Cookies.Append("jwt", jwt, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.Strict,
+                    Path = "/"
+                });
 
-                    var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    var principal = new ClaimsPrincipal(identity);
-
-                    //await HttpContext.SignInAsync(
-                    //    CookieAuthenticationDefaults.AuthenticationScheme,
-                    //    principal,
-                    //    authProperties);
-
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                        principal);
-                    return Ok(new { success = true, login = userCredentials.Login });
-                return Unauthorized("Invalid login or password");
+                return Ok("Logged in");
             }
             catch (Exception ex)
             {
@@ -77,9 +79,10 @@ namespace AngularApp1.Server.Controllers
 
         [HttpPost]
         [Route("logout")]
-        public async Task Logout()
+        public IActionResult Logout()
         {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            Response.Cookies.Delete("jwt");
+            return Ok();
         }
 
         [Authorize]
