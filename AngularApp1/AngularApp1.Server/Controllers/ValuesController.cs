@@ -9,12 +9,19 @@ namespace AngularApp1.Server.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        [Authorize(Roles = "User")]
-        [HttpGet]
-        public async Task<ActionResult<string>> GetSecretItem()
+        //[Authorize(Roles = "User")]
+        //[HttpGet]
+        //public async Task<ActionResult<string>> GetSecretItem()
+        //{
+        //    var item = "secret item";
+        //    return Ok(item);
+        //}
+
+        [Authorize]
+        [HttpGet("secure-data")]
+        public IActionResult SecureData()
         {
-            var item = "secret item";
-            return Ok(item);
+            return Ok(new { message = "sekretne dane" });
         }
     }
 }
