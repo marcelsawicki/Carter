@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LearningComponent } from './learning/learning.component';
@@ -16,6 +16,7 @@ import { ElementsService } from './services/elements.service';
 import { AccountService } from './services/account.service';
 import { AuthenticatorComponent } from './authenticator/authenticator.component';
 import { LoggedComponent } from './logged/logged.component';
+import { HeatCostTableComponent } from './heat-cost-table/heat-cost-table.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +28,14 @@ import { LoggedComponent } from './logged/logged.component';
     ChemistryComponent,
     AuthenticatorComponent,
     LoggedComponent,
+    HeatCostTableComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DecimalPipe, 
+    CommonModule
   ],
   providers: [BackendService, SessionService, ElementsService, AccountService],
   bootstrap: [AppComponent]

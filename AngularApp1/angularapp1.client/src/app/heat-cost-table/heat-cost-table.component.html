@@ -1,0 +1,18 @@
+
+<div class="table-wrapper">
+  <table>
+    <caption>Koszt 1 kWh energii</caption>
+    <thead>
+      <tr>
+        <th>Źródło ciepła</th>
+        <th>Koszt (zł / 1 kWh)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of heatCosts">
+        <td>{{ item.source }}</td>
+        <td>{{ item.cost | number:'1.2-2' }} zł</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

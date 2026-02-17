@@ -129,5 +129,12 @@ namespace AngularApp1.Server.Controllers
             //return Forbid("access - denied");
             return StatusCode(403, new { message = "Brak dostępu" });
         }
+
+        [Authorize]
+        [HttpGet("auth/check")]
+        public IActionResult Check()
+        {
+            return Ok(new { user = User.Identity?.Name });
+        }
     }
 }
